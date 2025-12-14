@@ -1,3 +1,2 @@
 Set WshShell = CreateObject("WScript.Shell")
-WshShell.Run """" & WshShell.ExpandEnvironmentStrings("%USERPROFILE%") & "\AppData\Local\Manga\run.bat""", 0, False
-
+WshShell.Run """" & WshShell.ExpandEnvironmentStrings("%USERPROFILE%") & "\AppData\Manga\run.bat""", 0, False
