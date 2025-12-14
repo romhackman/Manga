@@ -2,7 +2,6 @@
 
 ![Logo Manga Downloader](https://github.com/romhackman/Manga/blob/main/logo.png?raw=true)
 
-
 **Bonjour, je suis Romh@ckman !**  
 Je crée une application Python open-source pour **télécharger facilement les meilleurs scans de mangas** sur [Anime Sama](https://anime-sama.eu), gratuitement.
 
@@ -19,15 +18,13 @@ Je crée une application Python open-source pour **télécharger facilement les 
 
 ## 💻 Téléchargement
 
-Le lien pour télécharger l’application :
+Vous pouvez accéder au dépôt GitHub pour **télécharger l’application et le code source** :
 
-[Manga Downloader Installer]([Manga Downloader Installer](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Manga_Downloader_installer.exe)
+[Manga Downloader Installer sur GitHub](https://github.com/romhackman/Manga_Downloader_installer)
 
 ---
 
-## 📦 Installation
-
-Si vous voulez utiliser le code source :
+## 📦 Installation à partir du code source
 
 1. Clonez le dépôt :
 ```bash
