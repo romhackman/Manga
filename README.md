@@ -21,7 +21,7 @@ Je crée une application Python open-source pour **télécharger facilement les 
 
 Le lien pour télécharger l’application :
 
-[Manga Downloader Installer](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Manga_Downloader_installer.exe)
+[Manga Downloader Installer]([https://github.com/romhackman/Manga_Downloader_installer/blob/main/Manga_Downloader_installer.exe](https://github.com/romhackman/Manga_Downloader_installer/tree/main))
 
 ---
 
