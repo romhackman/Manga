@@ -1,4 +1,4 @@
-# Manga Downloader 🐉📚
+# Manga Downloader V2 🐉📚
 
 ![Logo Manga Downloader](https://github.com/romhackman/Manga/blob/main/logo.png?raw=true)
 
