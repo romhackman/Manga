@@ -23,7 +23,7 @@ Vous pouvez accéder au dépôt GitHub pour **télécharger l’application et l
 [Manga Downloader Installer sur GitHub](https://github.com/romhackman/Manga_Downloader_installer)
 
 ---
-## ⚠️ Attention ⚠️
+# ⚠️ Attention ⚠️
 Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. Certains peuvent enfreindre les droits d’auteur et soulever des questions éthiques ou juridiques concernant la propriété intellectuelle. L’utilisateur est seul responsable de l’usage qu’il en fait et des éventuelles conséquences légales.
 ---
 ## 📦 Installation à partir du code source
