@@ -1,9 +1,9 @@
-# Manga Downloader V2 🐉📚
+# Manga Downloader V3 🦊📚
 
 ![Logo Manga Downloader](https://github.com/romhackman/Manga/blob/main/mangadex/logo.png)
 
 **Bonjour, je suis Romh@ckman !**  
-Je crée une application Python open-source pour **télécharger facilement les meilleurs scans de mangas** sur [Anime Sama](https://anime-sama.eu), gratuitement.
+Je crée une application Python open-source pour **télécharger facilement les meilleurs scans de mangas** sur [Anime Sama](https://anime-sama.eu) et sur [MangaDex](https://mangadex.org) , gratuitement!
 
 ---
 
