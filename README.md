@@ -20,6 +20,10 @@ Je développe une application Python open-source pour **télécharger facilement
 
 Accédez au dépôt GitHub pour **télécharger l’application et le code source** :
 
+🔴 Pour le moment, l’installateur ne fonctionne pas.
+Ce programme peut néanmoins être lancé manuellement par des personnes ayant un minimum d’expérience en Python.
+
+
 [Manga Downloader Installer sur GitHub](https://github.com/romhackman/Manga_Downloader_installer)
 
 ---
