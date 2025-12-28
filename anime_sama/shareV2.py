@@ -26,7 +26,7 @@ def creer_lien_anime(titre):
     for k,v in remplacants.items():
         titre = titre.replace(k,v)
     titre = titre.replace("  "," ").replace(" ","-")
-    return f"https://anime-sama.eu/catalogue/{titre}/scan/vf/"
+    return f"https://anime-sama.tv/catalogue/{titre}/scan/vf/"
 
 def maj_liste_chapitres():
     liste.delete(0, tk.END)
@@ -49,7 +49,7 @@ def ajouter_chapitres_depuis_entry(event=None):
 
 # ----------------- Optimisation recherche binaire -----------------
 def page_existe(titre_url, chapitre, page):
-    url_img = f"https://anime-sama.eu/s2/scans/{titre_url}/{chapitre}/{page}.jpg"
+    url_img = f"https://anime-sama.tv/s2/scans/{titre_url}/{chapitre}/{page}.jpg"
     try:
         r = requests.head(url_img, headers={"User-Agent": "Mozilla/5.0"}, timeout=3)
         return r.status_code == 200
@@ -176,3 +176,4 @@ except Exception as e:
     tk.Label(frame_image, text=f"(Aucune image)\nErreur : {e}", font=("Arial",14), bg=FOND, fg=TEXTE).pack()
 
 fenetre.mainloop()
+
