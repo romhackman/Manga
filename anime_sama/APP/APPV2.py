@@ -30,7 +30,7 @@ def creer_lien_anime(titre):
     for k,v in remplacants.items():
         titre = titre.replace(k,v)
     titre = titre.replace("  "," ").replace(" ","-")
-    return f"https://anime-sama.eu/catalogue/{titre}/scan/vf/"
+    return f"https://anime-sama.tv/catalogue/{titre}/scan/vf/"
 
 def maj_liste_chapitres():
     liste.delete(0, tk.END)
@@ -53,7 +53,7 @@ def ajouter_chapitres_depuis_entry(event=None):
 
 # ----------------- RECHERCHE OPTIMISÉE -----------------
 def page_existe(titre_url, chapitre, page):
-    url_img = f"https://anime-sama.eu/s2/scans/{titre_url}/{chapitre}/{page}.jpg"
+    url_img = f"https://anime-sama.tv/s2/scans/{titre_url}/{chapitre}/{page}.jpg"
     try:
         r = requests.head(url_img, headers={"User-Agent": "Mozilla/5.0"}, timeout=3)
         return r.status_code == 200
@@ -115,7 +115,7 @@ def remplir_downloader():
     entry_titre_dl.insert(0, titre_anime)
 
     entry_url_dl.delete(0, tk.END)
-    entry_url_dl.insert(0, f"https://anime-sama.eu/s2/scans/{urllib.parse.quote(titre_anime)}/CHAP/NUM.jpg")
+    entry_url_dl.insert(0, f"https://anime-sama.tv/s2/scans/{urllib.parse.quote(titre_anime)}/CHAP/NUM.jpg")
 
     box_dl.delete(0, tk.END)
     for chap, pages in sorted(pages_trouvees.items()):
@@ -233,3 +233,4 @@ progress.pack(pady=10)
 tk.Button(downloader, text="Télécharger", command=telecharger, bg=BOUTON_BG, fg=TEXTE, font=("Arial",12,"bold")).pack(pady=10)
 
 fenetre.mainloop()
+
