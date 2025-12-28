@@ -3,12 +3,22 @@ import os
 import subprocess
 import sys
 
-# Chemin du projet et du script à lancer
+# Chemins
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 VENV_DIR = os.path.join(PROJECT_DIR, ".venv")
 LAUNCHER_DIR = os.path.join(PROJECT_DIR, "Luncher")
 LAUNCHER_FILE = os.path.join(LAUNCHER_DIR, "Luncher.py")
 SHORTCUT_FILE = os.path.join(PROJECT_DIR, "launch.sh")
+
+def remove_windows_files():
+    """Supprime tous les fichiers .bat et .vbs"""
+    print("Suppression des fichiers Windows (.bat, .vbs)...")
+    for root, dirs, files in os.walk(PROJECT_DIR):
+        for file in files:
+            if file.lower().endswith((".bat", ".vbs")):
+                path = os.path.join(root, file)
+                os.remove(path)
+                print(f"Supprimé : {path}")
 
 def create_venv():
     if not os.path.exists(VENV_DIR):
@@ -44,6 +54,7 @@ python3 "{LAUNCHER_FILE}" "$1"
     print(f"Script de lancement créé : {SHORTCUT_FILE}")
 
 if __name__ == "__main__":
+    remove_windows_files()
     create_venv()
     install_dependencies()
     create_shortcut()
