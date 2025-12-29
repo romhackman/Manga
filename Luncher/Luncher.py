@@ -30,8 +30,14 @@ dossier_principal = ""
 # ======================================================
 # Gestion JSON
 # ======================================================
+def save_config(path):
+    with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+        json.dump({"manga_path": path}, f, indent=4)
+
 def load_config():
     global dossier_principal
+
+    # Charger si le fichier existe
     if os.path.exists(CONFIG_FILE):
         try:
             with open(CONFIG_FILE, "r", encoding="utf-8") as f:
@@ -39,13 +45,26 @@ def load_config():
                 dossier_principal = data.get("manga_path", "")
         except:
             dossier_principal = ""
+
+    # Vérifier si le chemin est valide
+    if not dossier_principal or not os.path.exists(dossier_principal):
+        # Popup pour choisir un dossier
+        path = filedialog.askdirectory(title="Aucun dossier manga valide trouvé.\nVeuillez sélectionner le dossier contenant vos mangas.")
+        if path:
+            dossier_principal = path
+        else:
+            # Création configuration par défaut
+            dossier_principal = os.path.join(BASE_DIR, "Manga")
+            if not os.path.exists(dossier_principal):
+                os.makedirs(dossier_principal, exist_ok=True)
+                messagebox.showinfo("Configuration par défaut", f"Aucun dossier sélectionné.\nUn dossier par défaut a été créé :\n{dossier_principal}")
+            else:
+                messagebox.showinfo("Configuration par défaut", f"Aucun dossier sélectionné.\nLe dossier par défaut existe déjà :\n{dossier_principal}")
+
+        # Sauvegarder le chemin dans le JSON
+        save_config(dossier_principal)
+
     return dossier_principal
-
-
-def save_config(path):
-    with open(CONFIG_FILE, "w", encoding="utf-8") as f:
-        json.dump({"manga_path": path}, f, indent=4)
-
 
 # ======================================================
 # Thème
@@ -70,7 +89,6 @@ def appliquer_theme(widget):
 
         appliquer_theme(element)
 
-
 # ======================================================
 # Choisir dossier
 # ======================================================
@@ -79,10 +97,8 @@ def choisir_dossier():
     path = filedialog.askdirectory(title="Choisir le dossier racine des mangas")
     if path:
         dossier_principal = path
-        texte_dossier.set(f"Dossier sélectionné : {dossier_principal}")
         save_config(dossier_principal)
         refresh_mangas()
-
 
 # ======================================================
 # Rafraîchir mangas
@@ -101,7 +117,6 @@ def refresh_mangas():
 
     for manga in sorted(mangas):
         manga_listbox.insert(tk.END, manga)
-
 
 # ======================================================
 # Afficher chapitres
@@ -131,7 +146,6 @@ def show_chapters(event):
 
     for chap in chapters:
         chapter_listbox.insert(tk.END, chap)
-
 
 # ======================================================
 # Ouvrir PDF
@@ -164,17 +178,14 @@ def open_chapter(event):
 
     webbrowser.open_new(url)
 
-
 # ======================================================
 # Curseur main
 # ======================================================
 def on_chapter_hover(event):
     chapter_listbox.config(cursor="hand2")
 
-
 def on_chapter_leave(event):
     chapter_listbox.config(cursor="")
-
 
 # ======================================================
 # Lancer un programme (PORTABLE)
@@ -184,7 +195,6 @@ def lancer_script(chemin):
         subprocess.Popen([sys.executable, chemin])
     else:
         messagebox.showerror("Erreur", f"Le fichier est introuvable :\n{chemin}")
-
 
 # ======================================================
 # Interface
@@ -202,15 +212,12 @@ try:
 except:
     pass
 
-
-# ----------------- Boutons haut gauche (ordre personnalisé) -----------------
+# ----------------- Boutons haut gauche -----------------
 frame_boutons = tk.Frame(fenetre, bg=FOND)
 frame_boutons.pack(anchor="nw", padx=5, pady=5)
 
-# Configuration
 tk.Button(frame_boutons, text="⚙️", command=choisir_dossier).pack(side="left", padx=2)
 
-# Plugins avec icône
 tk.Button(
     frame_boutons,
     text="🧩",
@@ -219,12 +226,10 @@ tk.Button(
     )
 ).pack(side="left", padx=2)
 
-# PDF
 tk.Button(frame_boutons, text="pdfV2",
           command=lambda: lancer_script(os.path.join(BASE_DIR, "..", "programme", "pdfV2.py"))
          ).pack(side="left", padx=2)
 
-# Sites
 tk.Button(frame_boutons, text="AnimeSama",
           command=lambda: lancer_script(os.path.join(BASE_DIR, "..", "anime_sama", "lecture.py"))
          ).pack(side="left", padx=2)
@@ -256,10 +261,6 @@ chapter_listbox.bind("<Leave>", on_chapter_leave)
 tk.Button(frame_listes, text="Actualiser", command=refresh_mangas)\
     .grid(row=2, column=0, columnspan=2, pady=10)
 
-texte_dossier = tk.StringVar(value="Aucun dossier sélectionné")
-tk.Label(frame_listes, textvariable=texte_dossier, font=("Arial", 12))\
-    .grid(row=3, column=0, columnspan=2, pady=5)
-
 # ----------------- Image -----------------
 frame_image = tk.Frame(frame_main, bg=FOND)
 frame_image.pack(side="right", fill=tk.BOTH, expand=True, padx=10)
@@ -277,9 +278,5 @@ except:
 # ======================================================
 appliquer_theme(fenetre)
 load_config()
-
-if dossier_principal:
-    texte_dossier.set(f"Dossier sélectionné : {dossier_principal}")
-    refresh_mangas()
-
+refresh_mangas()
 fenetre.mainloop()
