@@ -6,9 +6,9 @@ import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 
-# ======================================================
+# ============================
 # Dossiers et fichiers
-# ======================================================
+# ============================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PLUGINS_DIR = os.path.join(BASE_DIR, "plugins")
 JSON_FILE = os.path.join(PLUGINS_DIR, "instance_plugins.json")
@@ -16,29 +16,45 @@ TEMP_JSON = os.path.join(PLUGINS_DIR, "temp_link.json")
 IMAGE_PATH = os.path.join(BASE_DIR, "image.png")
 LOGO_PATH = os.path.join(BASE_DIR, "logo.png")
 
-# ======================================================
+# ============================
 # Couleurs et thème
-# ======================================================
-FOND = "#FFD700"      # jaune
-TEXTE = "#000000"     # noir
+# ============================
+FOND = "#FFD700"
+TEXTE = "#000000"
 BOUTON_BG = "#FFC107"
 
-# ======================================================
-# Fonction pour lancer un plugin
-# ======================================================
+# ============================
+# Créer JSON vide si nécessaire
+# ============================
+os.makedirs(PLUGINS_DIR, exist_ok=True)
+if not os.path.exists(JSON_FILE):
+    with open(JSON_FILE, "w", encoding="utf-8") as f:
+        json.dump({}, f)
+
+# ============================
+# Lancer un plugin
+# ============================
 def lancer_plugin(nom):
     if nom in instance_plugins:
         fichier = instance_plugins[nom]
         if os.path.exists(fichier):
-            subprocess.Popen([sys.executable, fichier])
+            try:
+                if fichier.endswith(".py"):
+                    subprocess.Popen([sys.executable, fichier])
+                else:
+                    if os.name != "nt":
+                        os.chmod(fichier, 0o755)
+                    subprocess.Popen([fichier], shell=True)
+            except Exception as e:
+                messagebox.showerror("Erreur", f"Impossible de lancer le plugin : {e}")
         else:
             messagebox.showerror("Erreur", f"Fichier introuvable : {fichier}")
     else:
         messagebox.showerror("Erreur", f"Plugin '{nom}' introuvable dans le JSON.")
 
-# ======================================================
-# Fonction pour charger le JSON et remplir la liste
-# ======================================================
+# ============================
+# Charger les plugins
+# ============================
 def actualiser_plugins():
     global instance_plugins
     listbox_plugins.delete(0, tk.END)
@@ -50,33 +66,34 @@ def actualiser_plugins():
     else:
         instance_plugins = {}
 
-# ======================================================
-# Fonction pour enregistrer le lien temporaire et lancer l'install
-# ======================================================
+# ============================
+# Télécharger un plugin
+# ============================
 def telecharger_plugin():
     lien = entry_lien.get().strip()
     if not lien:
         messagebox.showwarning("Avertissement", "Veuillez entrer un lien GitHub.")
         return
 
-    # Enregistrer le lien dans un JSON temp
+    os.makedirs(PLUGINS_DIR, exist_ok=True)
     with open(TEMP_JSON, "w", encoding="utf-8") as f:
         json.dump({"link": lien}, f, indent=4)
 
-    # Lancer le script plugins_installer.py avec le lien temp
     installer_script = os.path.join(BASE_DIR, "plugins_installer.py")
     if os.path.exists(installer_script):
-        subprocess.Popen([sys.executable, installer_script, "--link", lien])
+        try:
+            subprocess.Popen([sys.executable, installer_script, "--link", lien])
+        except Exception as e:
+            messagebox.showerror("Erreur", f"Impossible de lancer l'installation : {e}")
     else:
         messagebox.showerror("Erreur", "plugins_installer.py introuvable.")
 
-    # Vider l'entrée et actualiser la liste après installation
     entry_lien.delete(0, tk.END)
-    root.after(2000, actualiser_plugins)  # actualiser après 2 sec
+    root.after(3000, actualiser_plugins)  # actualiser après 3 sec
 
-# ======================================================
-# Création de la fenêtre
-# ======================================================
+# ============================
+# Fenêtre principale
+# ============================
 root = tk.Tk()
 root.title("Plugins")
 root.geometry("900x500")
@@ -101,7 +118,15 @@ tk.Label(frame_plugins, text="Plugins :", font=("Arial", 16, "bold"), bg=FOND, f
 
 listbox_plugins = tk.Listbox(frame_plugins, width=30, height=20, bg="white", fg=TEXTE)
 listbox_plugins.pack(pady=5)
-listbox_plugins.bind("<Double-Button-1>", lambda e: lancer_plugin(listbox_plugins.get(listbox_plugins.curselection()[0])))
+
+def on_double_click(event):
+    try:
+        selection = listbox_plugins.get(listbox_plugins.curselection()[0])
+        lancer_plugin(selection)
+    except IndexError:
+        pass
+
+listbox_plugins.bind("<Double-Button-1>", on_double_click)
 
 btn_actualiser = tk.Button(frame_plugins, text="Actualiser", bg=BOUTON_BG, fg=TEXTE, command=actualiser_plugins)
 btn_actualiser.pack(pady=5)
