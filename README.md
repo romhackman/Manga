@@ -1,4 +1,4 @@
-# Manga Downloader V3 🦊📚
+# Manga Downloader V4 🧩📚
 
 ![Logo Manga Downloader](https://github.com/romhackman/Manga/blob/main/mangadex/logo.png)
 
