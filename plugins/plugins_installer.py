@@ -99,22 +99,36 @@ if os.path.exists(GLOBAL_REQUIREMENTS):
         global_modules = set(line.strip() for line in f if line.strip() and not line.startswith("#"))
 
 if os.path.exists(plugin_req_file):
-    with open(plugin_req_file, "r", encoding="utf-8") as f:
-        plugin_modules = set(line.strip() for line in f if line.strip() and not line.startswith("#"))
+    if os.name == "nt":
+        # Windows : installer directement
+        with open(plugin_req_file, "r", encoding="utf-8") as f:
+            plugin_modules = set(line.strip() for line in f if line.strip() and not line.startswith("#"))
 
-    missing_modules = plugin_modules - global_modules
-    for module in missing_modules:
-        print(f"Installation du module {module} ...")
-        subprocess.run([PYTHON, "-m", "pip", "install", module, "--user"], check=True)
-        global_modules.add(module)
+        missing_modules = plugin_modules - global_modules
+        for module in missing_modules:
+            print(f"Installation du module {module} ...")
+            subprocess.run([PYTHON, "-m", "pip", "install", module, "--user"])
+            global_modules.add(module)
 
-    # Mettre à jour le requirements global
-    with open(GLOBAL_REQUIREMENTS, "w", encoding="utf-8") as f:
-        for module in sorted(global_modules):
-            f.write(module + "\n")
-
-    # Supprimer seulement après installation
-    os.remove(plugin_req_file)
+        with open(GLOBAL_REQUIREMENTS, "w", encoding="utf-8") as f:
+            for module in sorted(global_modules):
+                f.write(module + "\n")
+        os.remove(plugin_req_file)
+    else:
+        # Linux : créer un .sh pour l'installation
+        sh_file = os.path.join(dossier_plugin_final, f"{nom_plugin}.sh")
+        with open(sh_file, "w", encoding="utf-8") as f:
+            f.write(f"""#!/bin/bash
+echo "Installation des dépendances pour {nom_plugin}..."
+if [ -f "requirements.txt" ]; then
+    python3 -m pip install -r requirements.txt --user
+    echo "Dépendances installées !"
+else
+    echo "Aucun requirements.txt trouvé."
+fi
+""")
+        os.chmod(sh_file, 0o755)
+        print(f"Script {sh_file} créé pour installer les dépendances sur Linux.")
 
 # ============================
 # Mettre à jour JSON
@@ -138,4 +152,4 @@ else:
 # ============================
 if os.path.exists(TEMP_JSON):
     os.remove(TEMP_JSON)
-    print("JSON temporaire supprimé.")
+    print("JSON temp supprimé.")
