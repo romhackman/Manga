@@ -82,8 +82,8 @@ with zipfile.ZipFile(io.BytesIO(r.content)) as z:
                 os.makedirs(os.path.dirname(final_path), exist_ok=True)
                 with z.open(file_info) as source, open(final_path, "wb") as target:
                     target.write(source.read())
-                # Permission Linux pour exécutable (.sh et .py)
-                if os.name != "nt" and (relative_path.endswith(".sh") or relative_path.endswith(".py")):
+                # Permission Linux pour exécutable
+                if os.name != "nt" and relative_path.endswith(".sh"):
                     os.chmod(final_path, 0o755)
 
 print(f"Plugin '{nom_plugin}' installé dans {dossier_plugin_final} !")
@@ -105,13 +105,15 @@ if os.path.exists(plugin_req_file):
     missing_modules = plugin_modules - global_modules
     for module in missing_modules:
         print(f"Installation du module {module} ...")
-        subprocess.run([PYTHON, "-m", "pip", "install", module, "--user"])
+        subprocess.run([PYTHON, "-m", "pip", "install", module, "--user"], check=True)
         global_modules.add(module)
 
+    # Mettre à jour le requirements global
     with open(GLOBAL_REQUIREMENTS, "w", encoding="utf-8") as f:
         for module in sorted(global_modules):
             f.write(module + "\n")
 
+    # Supprimer seulement après installation
     os.remove(plugin_req_file)
 
 # ============================
@@ -122,24 +124,18 @@ if os.path.exists(JSON_FILE):
     with open(JSON_FILE, "r", encoding="utf-8") as f:
         instance_plugins = json.load(f)
 
-# Détecter le fichier principal (.py)
 main_py = os.path.join(dossier_plugin_final, f"{nom_plugin}.py")
-if not os.path.exists(main_py):
-    py_files = [f for f in os.listdir(dossier_plugin_final) if f.endswith(".py")]
-    if py_files:
-        main_py = os.path.join(dossier_plugin_final, py_files[0])
-
 if os.path.exists(main_py):
     instance_plugins[nom_plugin] = main_py
     with open(JSON_FILE, "w", encoding="utf-8") as f:
         json.dump(instance_plugins, f, indent=4)
     print(f"JSON mis à jour : '{nom_plugin}' -> '{main_py}'")
 else:
-    print(f"Aucun fichier principal .py trouvé pour '{nom_plugin}'.")
+    print(f"Aucun fichier principal '{nom_plugin}.py' trouvé.")
 
 # ============================
 # Nettoyage
 # ============================
 if os.path.exists(TEMP_JSON):
     os.remove(TEMP_JSON)
-    print("JSON temp supprimé.")
+    print("JSON temporaire supprimé.")
