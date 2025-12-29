@@ -210,6 +210,15 @@ frame_boutons.pack(anchor="nw", padx=5, pady=5)
 # Configuration
 tk.Button(frame_boutons, text="⚙️", command=choisir_dossier).pack(side="left", padx=2)
 
+# Plugins avec icône
+tk.Button(
+    frame_boutons,
+    text="🧩",
+    command=lambda: lancer_script(
+        os.path.join(BASE_DIR, "..", "plugins", "plugin_interface.py")
+    )
+).pack(side="left", padx=2)
+
 # PDF
 tk.Button(frame_boutons, text="pdfV2",
           command=lambda: lancer_script(os.path.join(BASE_DIR, "..", "programme", "pdfV2.py"))
@@ -222,7 +231,6 @@ tk.Button(frame_boutons, text="AnimeSama",
 tk.Button(frame_boutons, text="Mangadex",
           command=lambda: lancer_script(os.path.join(BASE_DIR, "..", "mangadex", "main.py"))
          ).pack(side="left", padx=2)
-
 
 # ----------------- Frame principale -----------------
 frame_main = tk.Frame(fenetre, bg=FOND)
