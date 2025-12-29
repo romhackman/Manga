@@ -24,14 +24,6 @@ TEXTE = "#000000"
 BOUTON_BG = "#FFC107"
 
 # ============================
-# Créer JSON vide si nécessaire
-# ============================
-os.makedirs(PLUGINS_DIR, exist_ok=True)
-if not os.path.exists(JSON_FILE):
-    with open(JSON_FILE, "w", encoding="utf-8") as f:
-        json.dump({}, f)
-
-# ============================
 # Lancer un plugin
 # ============================
 def lancer_plugin(nom):
@@ -106,11 +98,11 @@ if os.path.exists(LOGO_PATH):
     except:
         pass
 
-# ----------------- Frame principal -----------------
+# Frame principal
 frame_main = tk.Frame(root, bg=FOND)
 frame_main.pack(fill=tk.BOTH, expand=True)
 
-# ----------------- Liste des plugins -----------------
+# Liste des plugins
 frame_plugins = tk.Frame(frame_main, bg=FOND)
 frame_plugins.pack(side="left", fill=tk.Y, padx=10, pady=10)
 
@@ -131,7 +123,7 @@ listbox_plugins.bind("<Double-Button-1>", on_double_click)
 btn_actualiser = tk.Button(frame_plugins, text="Actualiser", bg=BOUTON_BG, fg=TEXTE, command=actualiser_plugins)
 btn_actualiser.pack(pady=5)
 
-# ----------------- Zone pour lien GitHub -----------------
+# Zone pour lien GitHub
 frame_lien = tk.Frame(frame_plugins, bg=FOND)
 frame_lien.pack(pady=10)
 
@@ -141,7 +133,7 @@ entry_lien.pack(side="left", padx=5)
 btn_telecharger = tk.Button(frame_lien, text="Télécharger", bg=BOUTON_BG, fg=TEXTE, command=telecharger_plugin)
 btn_telecharger.pack(side="left", padx=5)
 
-# ----------------- Image à droite -----------------
+# Image à droite
 frame_image = tk.Frame(frame_main, bg=FOND)
 frame_image.pack(side="right", fill=tk.BOTH, expand=True)
 
@@ -153,7 +145,7 @@ if os.path.exists(IMAGE_PATH):
 else:
     tk.Label(frame_image, text="(Aucune image)", font=("Arial", 14), bg=FOND, fg=TEXTE).pack(expand=True)
 
-# ----------------- Charger plugins au démarrage -----------------
+# Charger plugins au démarrage
 actualiser_plugins()
 
 root.mainloop()
