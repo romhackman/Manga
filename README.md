@@ -13,7 +13,7 @@ Je développe une application Python open-source pour **télécharger facilement
 - Interface simple et conviviale  
 - Open-source : vous pouvez contribuer ou l’améliorer  
 - Fonctionne sur Windows via un exécutable prêt à l’emploi  
-
+- Un nouvelle app pour ajouter des plugins
 ---
 
 ## 💻 Téléchargement
