@@ -7,23 +7,25 @@ import sys
 import json
 import argparse
 
-# ======================================================
+# ============================
 # Dossiers et fichiers
-# ======================================================
+# ============================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PLUGINS_DIR = os.path.join(BASE_DIR, "plugins")
 JSON_FILE = os.path.join(PLUGINS_DIR, "instance_plugins.json")
 TEMP_JSON = os.path.join(PLUGINS_DIR, "temp_link.json")
 GLOBAL_REQUIREMENTS = os.path.join(BASE_DIR, "requirements.txt")
 
-if not os.path.exists(PLUGINS_DIR):
-    os.makedirs(PLUGINS_DIR)
+os.makedirs(PLUGINS_DIR, exist_ok=True)
+if not os.access(PLUGINS_DIR, os.W_OK):
+    print(f"Erreur : pas de permission pour écrire dans {PLUGINS_DIR}")
+    exit()
 
 PYTHON = sys.executable
 
-# ======================================================
-# Récupérer le lien depuis l'argument ou JSON temp
-# ======================================================
+# ============================
+# Récupérer le lien
+# ============================
 parser = argparse.ArgumentParser()
 parser.add_argument("--link", help="Lien GitHub du plugin")
 args = parser.parse_args()
@@ -35,7 +37,7 @@ elif os.path.exists(TEMP_JSON):
         data = json.load(f)
         lien = data.get("link", "").strip()
 else:
-    print("Aucun lien fourni ni dans le JSON temp. Sortie.")
+    print("Aucun lien fourni. Sortie.")
     exit()
 
 if not lien:
@@ -53,9 +55,9 @@ if os.path.exists(dossier_plugin_final):
 
 os.makedirs(dossier_plugin_final, exist_ok=True)
 
-# ======================================================
-# Téléchargement du ZIP
-# ======================================================
+# ============================
+# Téléchargement ZIP
+# ============================
 repo_base = "/".join(lien.split("/")[:5])
 zip_url = repo_base + "/archive/refs/heads/main.zip"
 print(f"Téléchargement du plugin '{nom_plugin}' depuis {zip_url} ...")
@@ -69,9 +71,9 @@ except Exception as e:
         os.remove(TEMP_JSON)
     exit()
 
-# ======================================================
-# Extraction du plugin
-# ======================================================
+# ============================
+# Extraction
+# ============================
 with zipfile.ZipFile(io.BytesIO(r.content)) as z:
     zip_root = z.namelist()[0].split("/")[0]
     for file_info in z.infolist():
@@ -84,12 +86,15 @@ with zipfile.ZipFile(io.BytesIO(r.content)) as z:
                 os.makedirs(os.path.dirname(final_path), exist_ok=True)
                 with z.open(file_info) as source, open(final_path, "wb") as target:
                     target.write(source.read())
+                # Permission Linux pour exécutable
+                if os.name != "nt" and relative_path.endswith(".sh"):
+                    os.chmod(final_path, 0o755)
 
 print(f"Plugin '{nom_plugin}' installé dans {dossier_plugin_final} !")
 
-# ======================================================
-# Installer les dépendances
-# ======================================================
+# ============================
+# Installer dépendances
+# ============================
 plugin_req_file = os.path.join(dossier_plugin_final, "requirements.txt")
 global_modules = set()
 
@@ -104,38 +109,45 @@ if os.path.exists(plugin_req_file):
     missing_modules = plugin_modules - global_modules
     for module in missing_modules:
         print(f"Installation du module {module} ...")
-        subprocess.run([PYTHON, "-m", "pip", "install", module])
+        subprocess.run([PYTHON, "-m", "pip", "install", module, "--user"])
         global_modules.add(module)
 
-    # Mettre à jour le requirements global
     with open(GLOBAL_REQUIREMENTS, "w", encoding="utf-8") as f:
         for module in sorted(global_modules):
             f.write(module + "\n")
 
     os.remove(plugin_req_file)
 
-# ======================================================
-# Mettre à jour le JSON instance_plugins
-# ======================================================
+# ============================
+# Mettre à jour JSON
+# ============================
 instance_plugins = {}
 if os.path.exists(JSON_FILE):
     with open(JSON_FILE, "r", encoding="utf-8") as f:
         instance_plugins = json.load(f)
 
-main_py = os.path.join(dossier_plugin_final, f"{nom_plugin}.py")
-if os.path.exists(main_py):
-    instance_plugins[nom_plugin] = main_py
-    with open(JSON_FILE, "w", encoding="utf-8") as f:
-        json.dump(instance_plugins, f, indent=4)
-    print(f"JSON mis à jour : '{nom_plugin}' -> '{main_py}'")
-else:
-    print(f"Aucun fichier principal '{nom_plugin}.py' trouvé.")
+# Cherche n'importe quel fichier .py dans le dossier du plugin
+main_py_candidates = [f for f in os.listdir(dossier_plugin_final) if f.endswith(".py")]
 
-# ======================================================
-# Supprimer le requirements global et le JSON temp
-# ======================================================
-if os.path.exists(GLOBAL_REQUIREMENTS):
-    os.remove(GLOBAL_REQUIREMENTS)
+if main_py_candidates:
+    main_py = os.path.join(dossier_plugin_final, main_py_candidates[0])
+    instance_plugins[nom_plugin] = main_py
+    print(f"Fichier principal trouvé : {main_py}")
+else:
+    print(f"Aucun fichier .py trouvé dans {dossier_plugin_final}")
+
+# Toujours écrire le JSON
+with open(JSON_FILE, "w", encoding="utf-8") as f:
+    json.dump(instance_plugins, f, indent=4)
+
+# ============================
+# Nettoyage
+# ============================
+try:
+    if os.path.exists(GLOBAL_REQUIREMENTS):
+        os.remove(GLOBAL_REQUIREMENTS)
+except:
+    pass
 
 if os.path.exists(TEMP_JSON):
     os.remove(TEMP_JSON)
