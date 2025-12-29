@@ -17,10 +17,6 @@ TEMP_JSON = os.path.join(PLUGINS_DIR, "temp_link.json")
 GLOBAL_REQUIREMENTS = os.path.join(BASE_DIR, "requirements.txt")
 
 os.makedirs(PLUGINS_DIR, exist_ok=True)
-if not os.access(PLUGINS_DIR, os.W_OK):
-    print(f"Erreur : pas de permission pour écrire dans {PLUGINS_DIR}")
-    exit()
-
 PYTHON = sys.executable
 
 # ============================
@@ -86,8 +82,8 @@ with zipfile.ZipFile(io.BytesIO(r.content)) as z:
                 os.makedirs(os.path.dirname(final_path), exist_ok=True)
                 with z.open(file_info) as source, open(final_path, "wb") as target:
                     target.write(source.read())
-                # Permission Linux pour exécutable
-                if os.name != "nt" and relative_path.endswith(".sh"):
+                # Permission Linux pour exécutable (.sh et .py)
+                if os.name != "nt" and (relative_path.endswith(".sh") or relative_path.endswith(".py")):
                     os.chmod(final_path, 0o755)
 
 print(f"Plugin '{nom_plugin}' installé dans {dossier_plugin_final} !")
@@ -126,29 +122,24 @@ if os.path.exists(JSON_FILE):
     with open(JSON_FILE, "r", encoding="utf-8") as f:
         instance_plugins = json.load(f)
 
-# Cherche n'importe quel fichier .py dans le dossier du plugin
-main_py_candidates = [f for f in os.listdir(dossier_plugin_final) if f.endswith(".py")]
+# Détecter le fichier principal (.py)
+main_py = os.path.join(dossier_plugin_final, f"{nom_plugin}.py")
+if not os.path.exists(main_py):
+    py_files = [f for f in os.listdir(dossier_plugin_final) if f.endswith(".py")]
+    if py_files:
+        main_py = os.path.join(dossier_plugin_final, py_files[0])
 
-if main_py_candidates:
-    main_py = os.path.join(dossier_plugin_final, main_py_candidates[0])
+if os.path.exists(main_py):
     instance_plugins[nom_plugin] = main_py
-    print(f"Fichier principal trouvé : {main_py}")
+    with open(JSON_FILE, "w", encoding="utf-8") as f:
+        json.dump(instance_plugins, f, indent=4)
+    print(f"JSON mis à jour : '{nom_plugin}' -> '{main_py}'")
 else:
-    print(f"Aucun fichier .py trouvé dans {dossier_plugin_final}")
-
-# Toujours écrire le JSON
-with open(JSON_FILE, "w", encoding="utf-8") as f:
-    json.dump(instance_plugins, f, indent=4)
+    print(f"Aucun fichier principal .py trouvé pour '{nom_plugin}'.")
 
 # ============================
 # Nettoyage
 # ============================
-try:
-    if os.path.exists(GLOBAL_REQUIREMENTS):
-        os.remove(GLOBAL_REQUIREMENTS)
-except:
-    pass
-
 if os.path.exists(TEMP_JSON):
     os.remove(TEMP_JSON)
     print("JSON temp supprimé.")
