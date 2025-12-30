@@ -24,9 +24,10 @@ if not exist "setup.py" (
 
 :: Lancer le setup
 echo Lancement de setup_win.py...
-python setup.py
+python setup_win.py
 
 echo.
 echo Installation terminee.
 pause
+
 
