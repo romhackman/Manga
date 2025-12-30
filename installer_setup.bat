@@ -15,9 +15,9 @@ if errorlevel 1 (
     exit /b
 )
 
-:: Vérifier que setup.py existe
-if not exist "setup.py" (
-    echo ERREUR : setup.py introuvable
+:: Vérifier que setup_win.py existe
+if not exist "setup_win.py" (
+    echo ERREUR : setup_win.py introuvable
     pause
     exit /b
 )
@@ -29,5 +29,6 @@ python setup_win.py
 echo.
 echo Installation terminee.
 pause
+
 
 
