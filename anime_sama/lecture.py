@@ -180,7 +180,11 @@ def lancer_mangaV3():
     lancer_script(os.path.join(BASE_DIR, "mangaV3.py"))
 
 def lancer_pdfV2():
-    lancer_script(os.path.join(BASE_DIR, "pdfV2.py"))
+    lancer_script(
+        os.path.abspath(
+            os.path.join(BASE_DIR, "..", "programme", "pdfV2.py")
+        )
+    )
 
 def lancer_share():
     lancer_script(os.path.join(BASE_DIR, "shareV2.py"))
