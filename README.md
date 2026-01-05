@@ -34,4 +34,4 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
 
 1. Clonez le dépôt :
 ```bash
-git clone https://github.com/romhackman/Manga_Downloader_installer.git
+git clone https://github.com/romhackman/Manga.git
