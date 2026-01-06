@@ -3,13 +3,13 @@
 ![Logo Manga Downloader](https://github.com/romhackman/Manga/blob/main/plugins/logo.png)
 
 **Bonjour, je suis Romh@ckman !**  
-Je développe une application Python open-source pour **télécharger facilement les meilleurs scans de mangas** depuis [Anime Sama](https://anime-sama.eu) et [MangaDex](https://mangadex.org), gratuitement !
+Je développe une application Python open-source pour **télécharger facilement les meilleurs scans de mangas** depuis [Anime Sama](https://anime-sama.tv) et [MangaDex](https://mangadex.org), gratuitement !
 
 ---
 
 ## 🚀 Fonctionnalités
 
-- Télécharger les derniers chapitres de mangas depuis Anime Sama  
+- Télécharger les derniers chapitres de mangas depuis Anime Sama  MangaDex ...
 - Interface simple et conviviale  
 - Open-source : vous pouvez contribuer ou l’améliorer  
 - Fonctionne sur Windows et Linux via un exécutable prêt à l’emploi  
