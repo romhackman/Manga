@@ -6,8 +6,8 @@ import sys
 # Chemins
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 VENV_DIR = os.path.join(PROJECT_DIR, ".venv")
-LAUNCHER_DIR = os.path.join(PROJECT_DIR, "Luncher")
-LAUNCHER_FILE = os.path.join(LAUNCHER_DIR, "Luncher.py")
+LAUNCHER_DIR = os.path.join(PROJECT_DIR, "Launcher")
+LAUNCHER_FILE = os.path.join(LAUNCHER_DIR, "Launcher.py")
 SHORTCUT_FILE = os.path.join(PROJECT_DIR, "launch.sh")
 
 def remove_windows_files():
