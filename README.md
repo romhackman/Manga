@@ -70,29 +70,38 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 *Ce bouton permet de rafraîchir la liste de vos mangas. Cette action est également effectuée automatiquement à chaque ouverture du Launcher.*
 
 ---
-
 ## Plugins 🧩
 ![plugins](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/plugins/logo.png?raw=true)
 
-Ce programme permet de gérer et lancer des plugins facilement.
+Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de télécharger, installer et lancer facilement des plugins depuis GitHub, sans avoir besoin de manipuler des fichiers ou des commandes.
+
+### Comment fonctionne le programme
+- **Affichage des plugins** : Le programme lit le fichier `plugins/instance_plugins.json` pour afficher tous les plugins déjà installés dans la liste.  
+- **Téléchargement d’un plugin** : Lorsqu’un utilisateur entre un lien GitHub et clique sur **Télécharger**, le programme :
+  1. Télécharge le plugin depuis le dépôt GitHub.  
+  2. Extrait les fichiers dans `plugins/nom_plugin/`.  
+  3. Exécute le script d’installation (`install.sh` ou `install.bat`) si présent.  
+  4. Met à jour `plugins/instance_plugins.json` pour se souvenir du chemin du plugin.
+- **Lancement d’un plugin** : Double-cliquer sur un plugin dans la liste lance automatiquement le fichier principal du plugin (`nom_plugin.py`) avec le Python de l’environnement virtuel `.venv`.
+- **Mémorisation des chemins** : Tous les plugins installés sont stockés dans le dossier `plugins` et leurs chemins sont sauvegardés dans `plugins/instance_plugins.json`. Ainsi, le programme se souvient des plugins même après fermeture.
 
 ### Fonctionnalités
-- Voir les plugins installés  
+- Voir tous les plugins installés  
 - Lancer un plugin en un clic  
-- Ajouter de nouveaux plugins depuis GitHub
+- Ajouter de nouveaux plugins depuis GitHub automatiquement  
 
 ### Utilisation
 
 **Voir les plugins**  
-- La liste des plugins installés apparaît à gauche.  
-- Cliquez sur **Actualiser** pour mettre à jour la liste.
+- Les plugins installés apparaissent à gauche dans la liste **Plugins :**  
+- Cliquez sur **Actualiser** pour mettre à jour la liste si nécessaire.
 
 **Lancer un plugin**  
 - Double-cliquez sur le plugin dans la liste pour l’exécuter.
 
 **Ajouter un plugin depuis GitHub**  
 1. Copier le lien du dépôt GitHub du plugin.  
-   - Exemple :  
+   - Exemple de lien correct :  
      ```
      https://github.com/utilisateur/nom_plugin
      ```
