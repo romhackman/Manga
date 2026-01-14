@@ -30,7 +30,7 @@ Accédez au dépôt GitHub pour **télécharger l’application et le code sourc
 Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. Certains contenus peuvent enfreindre les droits d’auteur et soulever des questions éthiques ou légales. L’utilisateur est seul responsable de l’usage qu’il en fait et des éventuelles conséquences légales.
 # Manga Downloader
 
----
+# Manga Downloader
 
 ## Sommaire
 - [Launcher 📕](#launcher-📕)
@@ -45,29 +45,28 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
 - [MangaDex 🐈](#mangadex-🐈-1)
 
 ---
-## 📕Launcher
+
+## Launcher 📕
 ![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/home/logo.png?raw=true)
 
 Le **Launcher** est l'interface principale de cette application. Il permet d'accéder rapidement à vos mangas favoris et à tous les modules et fonctionnalités disponibles.
 
-**Interface**
-
-- **Configuration ⚙️** (en haut à gauche)  
+### Configuration ⚙️
 *Permet de définir le dossier principal pour vos mangas. Au premier lancement, le programme vous demande de sélectionner un dossier où tous vos mangas seront téléchargés. Si vous annulez, un dossier par défaut sera créé dans le dossier Launcher. Les informations sur ce dossier sont stockées dans un fichier JSON. Vous pouvez changer le dossier de destination à tout moment en cliquant à nouveau sur ce bouton.*
 
-- **Plugins 🧩** (en haut à gauche)  
-*Ce module permet d'ajouter des sites supplémentaires pour télécharger des mangas, autres que Anime-Sama et MangaDex. Il est également possible de créer des extensions sans toucher au code de l'application. Le fonctionnement complet, du téléchargement à la création de plugins, [est détaillé dans le manuel, section Plugins](#plugins).*
+### Plugins 🧩
+*Ce module permet d'ajouter des sites supplémentaires pour télécharger des mangas autres que Anime-Sama et MangaDex. Il est également possible de créer des extensions sans toucher au code de l'application. Le fonctionnement complet, du téléchargement à la création de plugins, [est détaillé dans le manuel, section Plugins](#plugins-🧩-1).*
 
-- **PDF V2 📜** (en haut à gauche)  
+### PDF V2 📜
 *Ce module rend la lecture de toutes les images de vos mangas plus simple et agréable. Vous pouvez faire défiler vos mangas page par page, ce qui améliore grandement le confort de lecture.*
 
-- **Anime-Sama 🐾** (en haut à gauche)  
-*Anime-Sama permet de télécharger des scans provenant de ce site, ce qui est normalement impossible. Le module propose également d'autres fonctionnalités pour faciliter le téléchargement de vos scans. Tous les détails sont disponibles dans [le manuel, section Anime-Sama](#anime-sama).*
+### Anime-Sama 🐾
+*Anime-Sama permet de télécharger des scans provenant de ce site, ce qui est normalement impossible. Le module propose également d'autres fonctionnalités pour faciliter le téléchargement de vos scans. Tous les détails sont disponibles dans [le manuel, section Anime-Sama](#anime-sama-🐾-1).*
 
-- **MangaDex 🐈** (en haut à gauche)  
-*MangaDex permet de télécharger facilement des scans provenant de MangaDex. Ce module est un peu plus complexe qu’Anime-Sama mais contient moins de scans en stock. Son fonctionnement est détaillé dans [le manuel, section MangaDex](#mangadex).*
+### MangaDex 🐈
+*MangaDex permet de télécharger facilement des scans provenant de MangaDex. Ce module est un peu plus complexe qu’Anime-Sama mais contient moins de scans en stock. Son fonctionnement est détaillé dans [le manuel, section MangaDex](#mangadex-🐈-1).*
 
-- **Actualiser 🔄** (en bas de la fenêtre)  
+### Actualiser 🔄
 *Ce bouton permet de rafraîchir la liste de vos mangas. Cette action est également effectuée automatiquement à chaque ouverture du Launcher.*
 
 ---
@@ -88,9 +87,3 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/logo.png?raw=true)
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/image.png?raw=true)
 
----
-## 📦 Installation à partir du code source
-
-1. Clonez le dépôt :
-```bash
-git clone https://github.com/romhackman/Manga.git
