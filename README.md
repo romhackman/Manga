@@ -41,8 +41,7 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 *Permet de définir le dossier principal pour vos mangas. Au premier lancement, le programme vous demande de sélectionner un dossier où tous vos mangas seront téléchargés. Si vous annulez, un dossier par défaut sera créé dans le dossier Launcher. Les informations sur ce dossier sont stockées dans un fichier JSON. Vous pouvez changer le dossier de destination à tout moment en cliquant à nouveau sur ce bouton.*
 
 - **Plugins 🧩** (en haut à gauche)  
-*Ce module permet d'ajouter des sites supplémentaires pour télécharger des mangas, autres que Anime-Sama et MangaDex. Il est également possible de créer des extensions sans toucher au code de l'application. Le fonctionnement complet, du téléchargement à la création de plugins, est détaillé dans le manuel, section Plugins.*
-[Aller au Launcher](#launcher)
+*Ce module permet d'ajouter des sites supplémentaires pour télécharger des mangas, autres que Anime-Sama et MangaDex. Il est également possible de créer des extensions sans toucher au code de l'application. Le fonctionnement complet, du téléchargement à la création de plugins, *[est détaillé dans le manuel, section Plugins.](#plugins)
 
 
 - **PDF V2 📜** (en haut à gauche)  
