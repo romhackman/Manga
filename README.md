@@ -28,6 +28,21 @@ Accédez au dépôt GitHub pour **télécharger l’application et le code sourc
 ## ⚠️ Attention ⚠️
 
 Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. Certains contenus peuvent enfreindre les droits d’auteur et soulever des questions éthiques ou légales. L’utilisateur est seul responsable de l’usage qu’il en fait et des éventuelles conséquences légales.
+# Manga Downloader
+
+---
+
+## Sommaire
+- [Launcher 📕](#launcher-📕)
+  - [Configuration ⚙️](#configuration-⚙️)
+  - [Plugins 🧩](#plugins-🧩)
+  - [PDF V2 📜](#pdf-v2-📜)
+  - [Anime-Sama 🐾](#anime-sama-🐾)
+  - [MangaDex 🐈](#mangadex-🐈)
+  - [Actualiser 🔄](#actualiser-🔄)
+- [Plugins 🧩](#plugins-🧩-1)
+- [Anime-Sama 🐾](#anime-sama-🐾-1)
+- [MangaDex 🐈](#mangadex-🐈-1)
 
 ---
 ## 📕Launcher
