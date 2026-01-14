@@ -57,7 +57,18 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 *Ce bouton permet de rafraîchir la liste de vos mangas. Cette action est également effectuée automatiquement à chaque ouverture du Launcher.*
 
 ---
+## Pugins 🧩
+![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/plugins/logo.png?raw=true)
 
+---
+## Anime-Sama 🐾
+![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime20%sama/logo.png?raw=true)
+
+---
+## MangaDex 🐈
+![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/logo.png?raw=true)
+
+---
 ## 📦 Installation à partir du code source
 
 1. Clonez le dépôt :
