@@ -230,9 +230,15 @@ tk.Button(frame_boutons, text="pdfV2",
           command=lambda: lancer_script(os.path.join(BASE_DIR, "..", "programme", "pdfV2.py"))
          ).pack(side="left", padx=2)
 
-tk.Button(frame_boutons, text="AnimeSama",
-          command=lambda: lancer_script(os.path.join(BASE_DIR, "..", "anime_sama", "lecture.py"))
-         ).pack(side="left", padx=2)
+tk.Button(
+    frame_boutons,
+    text="AnimeSama",
+    command=lambda: [
+        lancer_script(os.path.join(BASE_DIR, "..", "anime_sama", "lecture.py")),
+        lancer_script(os.path.join(BASE_DIR, "..", "anime_sama", "APP", "scraper_domaine.py"))
+    ]
+).pack(side="left", padx=2)
+
 tk.Button(frame_boutons, text="Mangadex",
           command=lambda: lancer_script(os.path.join(BASE_DIR, "..", "mangadex", "main.py"))
          ).pack(side="left", padx=2)
