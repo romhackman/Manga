@@ -40,7 +40,7 @@ Launcher est l'interface principale de cette application. Il permet d'avoir un a
 *Au premier lancement, le programme vous demande un fichier. Ce fichier sera le dossier où tous les mangas seront téléchargés. Si vous annulez, un dossier sera créé par défaut dans le dossier Launcher. Les informations sur le chemin de ce dossier sont stockées dans un fichier JSON dans le dossier Launcher. Pendant votre utilisation, si vous voulez changer le fichier de destination, il suffit de cliquer sur ce même bouton.*
 ---
 ## 🐾 Anime sama
-![anime_sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime_sama/image.png?raw=true)
+![anime_sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
 
 Anime-sama est une des application qui vas le plus vous plaire. elle permet de telecharger des scan qui provienne du site anima-sama
 
