@@ -13,7 +13,8 @@ Je développe une application Python open-source pour **télécharger facilement
 - Interface simple et conviviale  
 - Open-source : vous pouvez contribuer ou l’améliorer  
 - Fonctionne sur Windows et Linux via un exécutable prêt à l’emploi  
-- Un nouvelle app pour ajouter des plugins
+- Une app pour ajouter des plugins
+- Une mise a jour auto du nom de domaine de anime sama
 ---
 
 ## 💻 Téléchargement
@@ -29,6 +30,14 @@ Accédez au dépôt GitHub pour **télécharger l’application et le code sourc
 Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. Certains contenus peuvent enfreindre les droits d’auteur et soulever des questions éthiques ou légales. L’utilisateur est seul responsable de l’usage qu’il en fait et des éventuelles conséquences légales.
 
 ---
+## 📕Launcher
+![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/home/image.png?raw=true)
+
+Launcher est l'interface principale de cette application. Il permet d'avoir un accès rapide à vos mangas favoris et à tous les modules et fonctionnalités que cette application peut offrir.
+
+**Interface**
+- En haut à gauche : configuration du fichier principal pour les mangas  
+*Au premier lancement, le programme vous demande un fichier. Ce fichier sera le dossier où tous les mangas seront téléchargés. Si vous annulez, un dossier sera créé par défaut dans le dossier Launcher. Les informations sur le chemin de ce dossier sont stockées dans un fichier JSON dans le dossier Launcher. Pendant votre utilisation, si vous voulez changer le fichier de destination, il suffit de cliquer sur ce même bouton.*
 
 ## 📦 Installation à partir du code source
 
