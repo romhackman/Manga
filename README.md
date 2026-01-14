@@ -48,10 +48,10 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 *Ce module rend la lecture de toutes les images de vos mangas plus simple et agréable. Vous pouvez faire défiler vos mangas page par page, ce qui améliore grandement le confort de lecture.*
 
 - **Anime-Sama 🐾** (en haut à gauche)  
-*Anime-Sama permet de télécharger des scans provenant de ce site, ce qui est normalement impossible. Le module propose également d'autres fonctionnalités pour faciliter le téléchargement de vos scans. Tous les détails sont disponibles dans *[ le manuel, section Anime-Sama.](#anime-sama)
+*Anime-Sama permet de télécharger des scans provenant de ce site, ce qui est normalement impossible. Le module propose également d'autres fonctionnalités pour faciliter le téléchargement de vos scans. Tous les détails sont disponibles dans * [ le manuel, section Anime-Sama.](#anime-sama)
 
 - **MangaDex 🐈** (en haut à gauche)  
-*MangaDex permet de télécharger facilement des scans provenant de MangaDex. Ce module est un peu plus complexe qu’Anime-Sama mais contient moins de scans en stock. Son fonctionnement est détaillé dans le manuel, section MangaDex.*[ le manuel, section MangaDex.](#MangaDex)
+*MangaDex permet de télécharger facilement des scans provenant de MangaDex. Ce module est un peu plus complexe qu’Anime-Sama mais contient moins de scans en stock. Son fonctionnement est détaillé dans le manuel, section MangaDex.* [ le manuel, section MangaDex.](#MangaDex)
 
 - **Actualiser 🔄** (en bas de la fenêtre)  
 *Ce bouton permet de rafraîchir la liste de vos mangas. Cette action est également effectuée automatiquement à chaque ouverture du Launcher.*
