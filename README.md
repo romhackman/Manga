@@ -73,6 +73,45 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 
 ## Plugins 🧩
 ![plugins](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/plugins/logo.png?raw=true)
+
+Ce programme permet de gérer et lancer des plugins facilement.
+
+### Fonctionnalités
+- Voir les plugins installés  
+- Lancer un plugin en un clic  
+- Ajouter de nouveaux plugins depuis GitHub
+
+### Utilisation
+
+**Voir les plugins**  
+- La liste des plugins installés apparaît à gauche.  
+- Cliquez sur **Actualiser** pour mettre à jour la liste.
+
+**Lancer un plugin**  
+- Double-cliquez sur le plugin dans la liste pour l’exécuter.
+
+**Ajouter un plugin depuis GitHub**  
+1. Copier le lien du dépôt GitHub du plugin.  
+   - Exemple :  
+     ```
+     https://github.com/utilisateur/nom_plugin
+     ```
+   - Le dépôt doit contenir :
+     - un fichier principal `nom_plugin.py`
+     - un script d’installation optionnel (`install.sh` ou `install.bat`)
+2. Coller le lien dans le champ sous la liste des plugins.  
+3. Cliquer sur **Télécharger**.  
+4. Attendre que le plugin s’installe et cliquer sur **Actualiser** si nécessaire.
+
+**Où sont stockés les plugins**  
+- Tous les plugins sont dans le dossier **plugins** du programme.  
+- Le programme mémorise automatiquement les chemins dans **plugins/instance_plugins.json**, donc ils restent accessibles après la fermeture du programme.
+
+**Résumé rapide :**  
+- **Double-cliquer** → lancer un plugin  
+- **Entrer un lien + Télécharger** → ajouter un plugin  
+- **Actualiser** → mettre à jour la liste
+
 ![plugins](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/plugins/image.png?raw=true)
 
 ---
