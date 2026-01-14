@@ -4,6 +4,8 @@ import urllib.parse
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import json
+import shutil
 
 # ----------------- Thème sombre -----------------
 FOND = "#040404"
@@ -19,8 +21,28 @@ chapitres = []
 pages_trouvees = {}
 titre_anime = ""
 dossier_temp = None
-MAX_PAGES_POSSIBLE = 1000  # Pour recherche binaire
+MAX_PAGES_POSSIBLE = 1000
 THREADS = 10
+
+# ======================================================
+# Lecture du domaine depuis le JSON (une seule fois)
+# ======================================================
+def load_domaine():
+    """Charge le domaine depuis le JSON ou met 'si' par défaut."""
+    json_path = os.path.join(os.path.dirname(__file__), "..", "anime_sama", "ND_anime_sama", "domaine.json")
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                return data.get("domaine", "si")
+        except Exception as e:
+            print(f"Erreur lecture JSON domaine: {e}")
+            return "si"
+    return "si"
+
+# Charger le domaine au lancement
+DOMAINE = load_domaine()
+print(f"Domaine utilisé : {DOMAINE}")
 
 # ----------------- FINDER -----------------
 def creer_lien_anime(titre):
@@ -30,7 +52,7 @@ def creer_lien_anime(titre):
     for k,v in remplacants.items():
         titre = titre.replace(k,v)
     titre = titre.replace("  "," ").replace(" ","-")
-    return f"https://anime-sama.si/catalogue/{titre}/scan/vf/"
+    return f"https://anime-sama.{DOMAINE}/catalogue/{titre}/scan/vf/"
 
 def maj_liste_chapitres():
     liste.delete(0, tk.END)
@@ -53,7 +75,7 @@ def ajouter_chapitres_depuis_entry(event=None):
 
 # ----------------- RECHERCHE OPTIMISÉE -----------------
 def page_existe(titre_url, chapitre, page):
-    url_img = f"https://anime-sama.si/s2/scans/{titre_url}/{chapitre}/{page}.jpg"
+    url_img = f"https://anime-sama.{DOMAINE}/s2/scans/{titre_url}/{chapitre}/{page}.jpg"
     try:
         r = requests.head(url_img, headers={"User-Agent": "Mozilla/5.0"}, timeout=3)
         return r.status_code == 200
@@ -115,7 +137,7 @@ def remplir_downloader():
     entry_titre_dl.insert(0, titre_anime)
 
     entry_url_dl.delete(0, tk.END)
-    entry_url_dl.insert(0, f"https://anime-sama.si/s2/scans/{urllib.parse.quote(titre_anime)}/CHAP/NUM.jpg")
+    entry_url_dl.insert(0, f"https://anime-sama.{DOMAINE}/s2/scans/{urllib.parse.quote(titre_anime)}/CHAP/NUM.jpg")
 
     box_dl.delete(0, tk.END)
     for chap, pages in sorted(pages_trouvees.items()):
@@ -165,7 +187,6 @@ def supprimer_dossier():
     global dossier_temp
     if dossier_temp and os.path.exists(dossier_temp):
         if messagebox.askyesno("Supprimer dossier ?", f"Supprimer '{dossier_temp}' ?"):
-            import shutil
             shutil.rmtree(dossier_temp)
             messagebox.showinfo("Supprimé", f"Dossier '{dossier_temp}' supprimé.")
             dossier_temp = None
