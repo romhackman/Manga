@@ -42,6 +42,8 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 
 - **Plugins 🧩** (en haut à gauche)  
 *Ce module permet d'ajouter des sites supplémentaires pour télécharger des mangas, autres que Anime-Sama et MangaDex. Il est également possible de créer des extensions sans toucher au code de l'application. Le fonctionnement complet, du téléchargement à la création de plugins, est détaillé dans le manuel, section Plugins.*
+[Aller au Launcher](#launcher)
+
 
 - **PDF V2 📜** (en haut à gauche)  
 *Ce module rend la lecture de toutes les images de vos mangas plus simple et agréable. Vous pouvez faire défiler vos mangas page par page, ce qui améliore grandement le confort de lecture.*
