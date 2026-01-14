@@ -62,7 +62,7 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 
 ---
 ## Anime-Sama 🐾
-![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime20%sama/logo.png?raw=true)
+![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/logo.png)
 
 ---
 ## MangaDex 🐈
