@@ -3,7 +3,7 @@
 ![Logo Manga Downloader](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/logo.png?raw=true)
 
 **Bonjour, je suis Romh@ckman !**  
-Je développe une application Python open-source pour **télécharger facilement les meilleurs scans de mangas** depuis [Anime Sama](https://anime-sama.tv) et [MangaDex](https://mangadex.org), gratuitement !
+Je développe une application Python open-source pour **télécharger facilement les meilleurs scans de mangas** depuis [Anime Sama](https://anime-sama.si) et [MangaDex](https://mangadex.org), gratuitement !
 
 ---
 
@@ -31,21 +31,30 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
 
 ---
 ## 📕Launcher
-![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/home/image.png?raw=true)
+![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/home/logo.png?raw=true)
 
 Launcher est l'interface principale de cette application. Il permet d'avoir un accès rapide à vos mangas favoris et à tous les modules et fonctionnalités que cette application peut offrir.
 
 **Interface**
-- En haut à gauche : configuration du fichier principal pour les mangas  
-*Au premier lancement, le programme vous demande un fichier. Ce fichier sera le dossier où tous les mangas seront téléchargés. Si vous annulez, un dossier sera créé par défaut dans le dossier Launcher. Les informations sur le chemin de ce dossier sont stockées dans un fichier JSON dans le dossier Launcher. Pendant votre utilisation, si vous voulez changer le fichier de destination, il suffit de cliquer sur ce même bouton.*
+- En haut à gauche : Configuration ⚙️  
+*Au premier lancement, le programme vous demande un dossier. Ce dossier sera l'emplacement où tous vos mangas seront téléchargés. Si vous annulez, un dossier sera créé par défaut dans le dossier Launcher. Les informations sur le chemin de ce dossier sont stockées dans un fichier JSON dans le dossier Launcher. Pendant votre utilisation, si vous voulez changer le dossier de destination, il suffit de cliquer sur ce même bouton.*
+
+- En haut à gauche : Plugins 🧩  
+*Plugins est un programme qui vous permet d'ajouter des sites pour télécharger des mangas autres que Anime-Sama et MangaDex. Il est très pratique. Si vous voulez créer une extension sans modifier le code de l'application, vous pouvez passer par Plugins. Le fonctionnement complet, du téléchargement à la création de plugins, sera détaillé dans le manuel, dans la section Plugins.*
+
+- En haut à gauche : PDF V2 📜  
+*PDF V2 est un programme qui rend la lecture de toutes les images de vos mangas plus simple et agréable. Vous pouvez lire tous vos mangas en faisant défiler les pages, ce qui est beaucoup plus confortable.*
+
+- En haut à gauche : Anime-Sama 🐾  
+*Anime-Sama est un des modules proposés dans cette application. Il vous permet de télécharger des scans provenant de Anime-Sama, ce qui est normalement impossible. Ce programme possède plusieurs autres modules pour vous aider à télécharger vos scans. Ces fonctionnalités seront détaillées dans le manuel, dans la section Anime-Sama.*
+
+- En haut à gauche : MangaDex 🐈  
+*MangaDex est un module pour télécharger facilement des scans provenant de MangaDex. Il est un peu plus complexe qu’Anime-Sama mais contient moins de scans en stock. Le fonctionnement du module MangaDex sera expliqué dans le manuel, dans la section MangaDex.*
+
+- En bas de la fenêtre : Actualiser 🔄  
+*Ce bouton a une fonctionnalité très simple : actualiser la liste de vos mangas, bien que cette action soit déjà effectuée à chaque lancement de la fenêtre Launcher.*
+
 ---
-## 🐾 Anime sama
-![anime_sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
-
-Anime-sama est une des application qui vas le plus vous plaire. elle permet de telecharger des scan qui provienne du site anima-sama
-
-**Interface**
-
 
 ## 📦 Installation à partir du code source
 
