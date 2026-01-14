@@ -6,6 +6,7 @@ import urllib.parse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import os
 import shutil
+import json
 
 # ----------------- Thème sombre -----------------
 FOND = "#040404"
@@ -18,6 +19,24 @@ chapitres = []
 dossier_temp = None
 MAX_PAGES_POSSIBLE = 1000  # pour la recherche binaire
 
+# ----------------- Lecture du domaine -----------------
+def get_domaine():
+    """Retourne l'extension du domaine actuel pour Anime-sama depuis le JSON."""
+    json_path = os.path.join(os.path.dirname(__file__), "..", "anime_sama", "ND_anime_sama", "domaine.json")
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                domaine = data.get("domaine", "si")
+                # Si le JSON contient l'URL complète, on prend seulement l'extension
+                if domaine.startswith("http"):
+                    ext = domaine.split(".")[-1]
+                    return ext
+                return domaine
+        except:
+            return "si"
+    return "si"
+
 # ----------------- Fonctions -----------------
 def creer_lien_anime(titre):
     titre = titre.lower().strip()
@@ -26,7 +45,8 @@ def creer_lien_anime(titre):
     for k,v in remplacants.items():
         titre = titre.replace(k,v)
     titre = titre.replace("  "," ").replace(" ","-")
-    return f"https://anime-sama.si/catalogue/{titre}/scan/vf/"
+    domaine = get_domaine()
+    return f"https://anime-sama.{domaine}/catalogue/{titre}/scan/vf/"
 
 def maj_liste_chapitres():
     liste.delete(0, tk.END)
@@ -49,7 +69,8 @@ def ajouter_chapitres_depuis_entry(event=None):
 
 # ----------------- Optimisation recherche binaire -----------------
 def page_existe(titre_url, chapitre, page):
-    url_img = f"https://anime-sama.si/s2/scans/{titre_url}/{chapitre}/{page}.jpg"
+    domaine = get_domaine()
+    url_img = f"https://anime-sama.{domaine}/s2/scans/{titre_url}/{chapitre}/{page}.jpg"
     try:
         r = requests.head(url_img, headers={"User-Agent": "Mozilla/5.0"}, timeout=3)
         return r.status_code == 200
