@@ -9,12 +9,13 @@ Je développe une application Python open-source pour **télécharger facilement
 
 ## 🚀 Fonctionnalités
 
-- Télécharger les derniers chapitres de mangas depuis Anime Sama  MangaDex ...
+- Télécharger les derniers chapitres de mangas depuis Anime Sama et MangaDex  
 - Interface simple et conviviale  
 - Open-source : vous pouvez contribuer ou l’améliorer  
 - Fonctionne sur Windows et Linux via un exécutable prêt à l’emploi  
-- Une app pour ajouter des plugins
-- Une mise a jour auto du nom de domaine de anime sama
+- Ajouter facilement des plugins  
+- Mise à jour automatique du nom de domaine de Anime Sama
+
 ---
 
 ## 💻 Téléchargement
@@ -25,24 +26,23 @@ Accédez au dépôt GitHub pour **télécharger l’application et le code sourc
 
 ---
 
-## ⚠️ Attention ⚠️
+## ⚠️ Attention
 
-Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. Certains contenus peuvent enfreindre les droits d’auteur et soulever des questions éthiques ou légales. L’utilisateur est seul responsable de l’usage qu’il en fait et des éventuelles conséquences légales.
-# Manga Downloader
+Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. Certains contenus peuvent enfreindre les droits d’auteur ou soulever des questions éthiques et légales. L’utilisateur est seul responsable de l’usage qu’il en fait et des éventuelles conséquences légales.
 
-# Manga Downloader
+---
 
-## Sommaire
-- [Launcher 📕](#launcher-📕)
-  - [Configuration ⚙️](#configuration-⚙️)
-  - [Plugins 🧩](#plugins-🧩)
-  - [PDF V2 📜](#pdf-v2-📜)
-  - [Anime-Sama 🐾](#anime-sama-🐾)
-  - [MangaDex 🐈](#mangadex-🐈)
-  - [Actualiser 🔄](#actualiser-🔄)
-- [Plugins 🧩](#plugins-🧩-1)
-- [Anime-Sama 🐾](#anime-sama-🐾-1)
-- [MangaDex 🐈](#mangadex-🐈-1)
+# Sommaire
+- [Launcher 📕](#launcher)
+  - [Configuration ⚙️](#configuration)
+  - [Plugins 🧩](#plugins)
+  - [PDF V2 📜](#pdf-v2)
+  - [Anime-Sama 🐾](#anime-sama)
+  - [MangaDex 🐈](#mangadex)
+  - [Actualiser 🔄](#actualiser)
+- [Plugins 🧩](#plugins-1)
+- [Anime-Sama 🐾](#anime-sama-1)
+- [MangaDex 🐈](#mangadex-1)
 
 ---
 
@@ -55,16 +55,16 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 *Permet de définir le dossier principal pour vos mangas. Au premier lancement, le programme vous demande de sélectionner un dossier où tous vos mangas seront téléchargés. Si vous annulez, un dossier par défaut sera créé dans le dossier Launcher. Les informations sur ce dossier sont stockées dans un fichier JSON. Vous pouvez changer le dossier de destination à tout moment en cliquant à nouveau sur ce bouton.*
 
 ### Plugins 🧩
-*Ce module permet d'ajouter des sites supplémentaires pour télécharger des mangas autres que Anime-Sama et MangaDex. Il est également possible de créer des extensions sans toucher au code de l'application. Le fonctionnement complet, du téléchargement à la création de plugins, [est détaillé dans le manuel, section Plugins](#plugins-🧩-1).*
+*Ce module permet d'ajouter des sites supplémentaires pour télécharger des mangas autres que Anime-Sama et MangaDex. Il est également possible de créer des extensions sans toucher au code de l'application. Le fonctionnement complet, du téléchargement à la création de plugins, [est détaillé dans le manuel, section Plugins](#plugins-1).*
 
 ### PDF V2 📜
 *Ce module rend la lecture de toutes les images de vos mangas plus simple et agréable. Vous pouvez faire défiler vos mangas page par page, ce qui améliore grandement le confort de lecture.*
 
 ### Anime-Sama 🐾
-*Anime-Sama permet de télécharger des scans provenant de ce site, ce qui est normalement impossible. Le module propose également d'autres fonctionnalités pour faciliter le téléchargement de vos scans. Tous les détails sont disponibles dans [le manuel, section Anime-Sama](#anime-sama-🐾-1).*
+*Anime-Sama permet de télécharger des scans provenant de ce site, ce qui est normalement impossible. Le module propose également d'autres fonctionnalités pour faciliter le téléchargement de vos scans. Tous les détails sont disponibles dans [le manuel, section Anime-Sama](#anime-sama-1).*
 
 ### MangaDex 🐈
-*MangaDex permet de télécharger facilement des scans provenant de MangaDex. Ce module est un peu plus complexe qu’Anime-Sama mais contient moins de scans en stock. Son fonctionnement est détaillé dans [le manuel, section MangaDex](#mangadex-🐈-1).*
+*MangaDex permet de télécharger facilement des scans provenant de MangaDex. Ce module est un peu plus complexe qu’Anime-Sama mais contient moins de scans en stock. Son fonctionnement est détaillé dans [le manuel, section MangaDex](#mangadex-1).*
 
 ### Actualiser 🔄
 *Ce bouton permet de rafraîchir la liste de vos mangas. Cette action est également effectuée automatiquement à chaque ouverture du Launcher.*
@@ -86,4 +86,3 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 ## MangaDex 🐈
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/logo.png?raw=true)
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/image.png?raw=true)
-
