@@ -32,6 +32,10 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
 
 ---
 
+Manga Downloader V5 est une application Python open-source qui permet de télécharger facilement des mangas depuis Anime Sama et MangaDex. Avec une interface simple et un Launcher central, vous pouvez lancer les modules de téléchargement, créer des PDF, gérer des plugins et garder vos mangas organisés. Open-source et multiplateforme, le programme facilite le téléchargement complet des chapitres tout en restant extensible grâce aux plugins personnalisables.
+
+---
+
 ## Launcher 📕
 ![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/home/logo.png?raw=true)
 
