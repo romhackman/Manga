@@ -40,7 +40,7 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
 * [Launcher](#-launcher)
 * [Plugins](#-plugins)
 * [Anime-Sama](#-anime-sama)
-  * [MangaV3](#manga-v3)
+  * [MangaV3](#-manga)
   * [ShareV2](#-sharev2)
   * [APPV2](#-appv2)
 * [Scraper Anime-Sama](#-anime-sama-domain-scraper)
@@ -161,7 +161,7 @@ En bas de la fenêtre, un bouton **Actualiser** permet de :
 - 3 **APPV2**
 ---
 
-### 🪢 MangaV2
+### 🪢 Manga
 
 MangaV3 est une base de l'application Anime-Sama. Elle permet de télécharger des scans de manière *manuelle* en utilisant un lien, ainsi qu’en renseignant le nombre de pages par chapitre.
 
