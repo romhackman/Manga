@@ -6,10 +6,12 @@
 
 **Accroche :**
 Téléchargez facilement vos mangas favoris en quelques clics, depuis Anime Sama et MangaDex, grâce à une application simple et open-source.
-[![Python](https://img.shields.io/badge/python-3.10-blue)](https://www.python.org/) 
+
 **Explication rapide :**
 Manga Downloader V5 est une application Python open-source qui centralise tous vos besoins : téléchargement automatique des chapitres, création de PDF, gestion des plugins et organisation des fichiers. Compatible Windows et Linux, elle calcule automatiquement le nombre de pages par chapitre et permet aux utilisateurs avancés d’ajouter ou créer des plugins pour étendre les sources de mangas disponibles.
-
+---
+[![Python](https://img.shields.io/badge/python-3.10-blue)](https://www.python.org/) 
+---
 ## 🚀 Fonctionnalités
 
 - Télécharger les derniers chapitres de mangas depuis Anime Sama et MangaDex  
