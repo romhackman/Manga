@@ -47,15 +47,7 @@ Parfait ! Je vais te créer un **sommaire cliquable complet** pour ton README, b
   * [APPV2 🔽](#appv2-🔽)
 * [Scraper Anime-Sama 📡](#-anime-sama-domain-scraper)
 * [MangaDex 🐈](#mangadex-🐈)
----
-
-# Sommaire
-
-* [Anime-Sama](#anime-sama)
-* [MangaDex](#mangadex)
-* [Scraper](#scraper)
-* [Plugins](#plugins)
-
+  
 ---
 
 ## Launcher 📕
