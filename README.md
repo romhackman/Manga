@@ -267,12 +267,97 @@ Le fonctionnement de ShareV2 repose sur la logique suivante (expliquée à parti
 
 ---
 
+Bien sûr ! Voici une version corrigée et améliorée de ton texte, avec une orthographe, une grammaire et une formulation plus claires, tout en conservant ton style et les emojis :
+
+---
+
 ### APPV2 🔽
 
-APPV2 est un sans doute l'application la plus pratique de ce project
+APPV2 est sans doute l'application la plus pratique de ce projet.
 
 ### Interface 🪟
-sur le project il y a 2 interface car cette fenetre elle possaide 2 onglets
+
+Le projet comporte 2 interfaces, car cette fenêtre possède 2 onglets :
+
+* **Onglet 1 (Finder)**
+
+  * Une zone pour entrer le titre du scan, de la même façon que pour ShareV2.
+  * Une zone pour entrer les chapitres à télécharger.
+  * Un bouton pour lancer la recherche des pages.
+  * Un bouton pour supprimer le dossier `Temp`.
+
+* **Onglet 2 (Downloader)**
+
+  * Une zone où apparaîtra le titre du manga.
+  * Une zone où le lien Anime-sama apparaîtra.
+  * Un bouton pour sélectionner le dossier de destination du téléchargement.
+  * Une barre de progression pour suivre l’avancement du téléchargement des scans.
+  * Un bouton pour lancer le téléchargement.
+
+### Finder 🔍
+
+Finder fonctionne de la même façon que ShareV2, il suffit de mettre le **titre exact** dans le champ *Nom de l'anime :*.
+
+### Downloader 🔽
+
+Downloader télécharge automatiquement les images des scans en utilisant les informations fournies en interne par la partie Finder.
+
+Parfait ! À partir de ton code, on peut rédiger une **section “Fonctionnement ⚙️” claire et structurée**, en expliquant le processus de l’app de manière compréhensible pour un manuel ou une doc utilisateur :
+
+---
+
+### Fonctionnement ⚙️
+
+L’application APPV2 fonctionne en deux grandes étapes, correspondant aux deux onglets de l’interface : **Finder** et **Downloader**.
+
+#### 1️⃣ Finder 🔍
+
+Le rôle du Finder est de **préparer les informations nécessaires pour le téléchargement**.
+
+1. **Entrée du titre de l’anime**
+
+   * L’utilisateur saisit le nom exact de l’anime dans le champ *Nom de l'anime*.
+   * Le programme génère automatiquement un lien vers la page correspondante sur Anime-sama, en normalisant les accents et les espaces.
+
+2. **Sélection des chapitres**
+
+   * Les chapitres à télécharger sont ajoutés via le champ prévu à cet effet.
+   * Il est possible de saisir plusieurs chapitres séparés par des espaces ou des virgules.
+   * La liste des chapitres s’affiche dans la zone correspondante.
+
+3. **Recherche du nombre de pages par chapitre**
+
+   * Le Finder vérifie pour chaque chapitre combien de pages existent réellement.
+   * Cette vérification est **optimisée** grâce à une recherche binaire pour éviter de tester inutilement des pages inexistantes.
+   * Les résultats sont affichés dans la liste et sauvegardés dans un dossier temporaire (`_Temp`) pour utilisation par le Downloader.
+
+4. **Suppression du dossier temporaire**
+
+   * L’utilisateur peut supprimer le dossier temporaire une fois les informations utilisées ou si elles ne sont plus nécessaires.
+
+#### 2️⃣ Downloader ⬇
+
+Le Downloader utilise les informations collectées par le Finder pour **télécharger automatiquement les scans** :
+
+1. **Affichage des informations**
+
+   * Le titre de l’anime et un modèle d’URL pour les images sont automatiquement remplis.
+   * La liste des chapitres et du nombre de pages disponibles s’affiche.
+
+2. **Choix du dossier de destination**
+
+   * L’utilisateur sélectionne le dossier où seront stockées les images téléchargées.
+   * L’application crée automatiquement un sous-dossier pour chaque chapitre.
+
+3. **Téléchargement des scans**
+
+   * Chaque page est téléchargée à partir de l’URL générée dynamiquement en remplaçant les placeholders `CHAP` et `NUM`.
+   * La barre de progression indique l’avancement global du téléchargement.
+   * Le téléchargement se fait séquentiellement, chapitre par chapitre et page par page.
+
+4. **Finalisation**
+
+   * Une fois toutes les pages téléchargées, l’application informe l’utilisateur que le téléchargement est terminé.
 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
 
