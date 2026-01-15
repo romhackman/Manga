@@ -155,8 +155,6 @@ MangaV2 est une base de l'application Anime-Sama. Elle permet de télécharger d
 * Une **barre de téléchargement** pour suivre l’avancement du téléchargement en cours.
 * Un bouton **Télécharger** pour lancer le téléchargement.
 
----
-
 ### Fonctionnement ⚙️
 
 MangaV2 fonctionne en suivant un processus simple et guidé pour télécharger les chapitres d’un manga depuis un lien modèle. Voici les étapes principales :
@@ -207,8 +205,6 @@ Bien sûr ! Voici une version corrigée et clarifiée de ton texte **ShareV2**
 
 **ShareV2** est un programme qui permet de **trouver le nombre de pages dans un scan de manga**. Cette application sert principalement à **faciliter le téléchargement via l’application MangaV2**.
 
----
-
 ### Interface 🪟
 
 * Une zone pour **saisir le nom du scan** (nom du manga).
@@ -219,8 +215,6 @@ Bien sûr ! Voici une version corrigée et clarifiée de ton texte **ShareV2**
 * Un bouton pour **lancer la recherche du nombre de pages** pour les chapitres sélectionnés.
 * Une liste affichant les **chapitres ajoutés**.
 * Un bouton pour **supprimer le dossier temporaire** créé lors de la recherche.
-
----
 
 ### Fonctionnement ⚙️
 
@@ -259,14 +253,6 @@ Le fonctionnement de ShareV2 repose sur la logique suivante (expliquée à parti
 
    * Les résultats sont sauvegardés dans un **dossier temporaire**, un fichier par chapitre contenant le nombre de pages.
    * L’utilisateur peut choisir de **supprimer ce dossier** via un bouton.
-
-7. **Interface graphique**
-
-   * Construit avec `tkinter` avec un **thème sombre**.
-   * Possibilité d’ouvrir directement le lien du manga sur Anime-sama.
-   * Affiche le nombre de pages par chapitre dans une fenêtre pop-up.
-
----
 
 ### Résumé du flux de travail
 
