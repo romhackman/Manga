@@ -32,20 +32,6 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
 
 ---
 
-# Sommaire
-- [Launcher 📕](#launcher)
-  - [Configuration ⚙️](#configuration)
-  - [Plugins 🧩](#plugins)
-  - [PDF V2 📜](#pdf-v2)
-  - [Anime-Sama 🐾](#anime-sama)
-  - [MangaDex 🐈](#mangadex)
-  - [Actualiser 🔄](#actualiser)
-- [Plugins 🧩](#plugins-1)
-- [Anime-Sama 🐾](#anime-sama-1)
-- [MangaDex 🐈](#mangadex-1)
-
----
-
 ## Launcher 📕
 ![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/home/logo.png?raw=true)
 
@@ -125,6 +111,35 @@ Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de
 
 ## Anime-Sama 🐾
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/logo.png)
+
+Parfait ! Voici une version un peu réorganisée et clarifiée de ton texte pour le rendre plus lisible et structuré, tout en conservant toutes les informations importantes :
+
+---
+
+# Module Anime-Sama 📚
+
+Le module **Anime-Sama** est conçu pour **télécharger des scans** provenant du site Anime-Sama.
+
+## Interface 🪟
+
+L’interface comporte plusieurs boutons et sections, chacun ayant une fonction précise.
+
+### Boutons principaux 🟢
+
+En haut à gauche, on trouve plusieurs boutons permettant de lancer différentes applications liées au téléchargement de scans :
+
+* **PDV2** : Application pour **créer des PDF** à partir d’images.
+* **MangaV3** : Application pour **télécharger des scans manuellement**.
+* **ShareV2** : Application pour **rechercher le nombre de pages** d’un ou plusieurs chapitres d’un manga.
+* **APPV2** : L’**application principale**, permettant de **télécharger les scans rapidement et facilement**.
+
+### Bouton Actualiser 🔄
+
+En bas de la fenêtre, un bouton **Actualiser** permet de :
+
+* Mettre à jour la liste des scans et chapitres disponibles,
+* Fonctionne de la même manière que le bouton d’actualisation de l’interface principale du projet dans le **Launcher**.
+
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
 ---
 
