@@ -161,7 +161,7 @@ En bas de la fenêtre, un bouton **Actualiser** permet de :
 - 3 **APPV2**
 ---
 
-### MangaV2 🪢
+### 🪢 MangaV2
 
 MangaV3 est une base de l'application Anime-Sama. Elle permet de télécharger des scans de manière *manuelle* en utilisant un lien, ainsi qu’en renseignant le nombre de pages par chapitre.
 
@@ -219,7 +219,7 @@ Bien sûr ! Voici une version corrigée et clarifiée de ton texte **ShareV2**
 
 ---
 
-### ShareV2 🔍
+### 🔍 ShareV2
 
 **ShareV2** est un programme qui permet de **trouver le nombre de pages dans un scan de manga**. Cette application sert principalement à **faciliter le téléchargement via l’application MangaV3**.
 
@@ -283,7 +283,7 @@ Le fonctionnement de ShareV2 repose sur la logique suivante (expliquée à parti
 
 ---
 
-### APPV2 🔽
+### 🔽 APPV2 
 
 APPV2 est sans doute l'application la plus pratique de ce projet.
 
