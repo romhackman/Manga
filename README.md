@@ -140,6 +140,11 @@ En bas de la fenêtre, un bouton **Actualiser** permet de :
 * Mettre à jour la liste des scans et chapitres disponibles,
 * Fonctionne de la même manière que le bouton d’actualisation de l’interface principale du projet dans le **Launcher**.
 
+# Application de c'est fentre anime-sama:
+
+- 1 **MangaV3**
+- 2
+
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
 ---
 
