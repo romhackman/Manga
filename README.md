@@ -54,7 +54,7 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
 Le **Launcher** est l'interface principale de cette application. Il permet d'accéder rapidement à vos mangas favoris et à tous les modules et fonctionnalités disponibles.
 
 ### Configuration ⚙️
-*Permet de définir le dossier principal pour vos mangas. Au premier lancement, le programme vous demande de sélectionner un dossier où tous vos mangas seront téléchargés. Si vous annulez, un dossier par défaut sera créé dans le dossier Launcher. Les informations sur ce dossier sont stockées dans un fichier JSON. Vous pouvez changer le dossier de destination à tout moment en cliquant à nouveau sur ce bouton.*[Plugins](#-sommaire)
+*Permet de définir le dossier principal pour vos mangas. Au premier lancement, le programme vous demande de sélectionner un dossier où tous vos mangas seront téléchargés. Si vous annulez, un dossier par défaut sera créé dans le dossier Launcher. Les informations sur ce dossier sont stockées dans un fichier JSON. Vous pouvez changer le dossier de destination à tout moment en cliquant à nouveau sur ce bouton.*
 
 ### Plugins 🧩
 *Ce module permet d'ajouter des sites supplémentaires pour télécharger des mangas autres que Anime-Sama et MangaDex. Il est également possible de créer des extensions sans toucher au code de l'application. Le fonctionnement complet, du téléchargement à la création de plugins, [est détaillé dans le manuel, section Plugins](#-plugins).*
@@ -129,8 +129,8 @@ Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de
 
 ## 🐾 Anime Sama 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/logo.png)
-
-# Module Anime-Sama 📚
+[Somaine 📑](#-sommaire)
+# Module Anime-Sama 📚 
 
 Le module **Anime-Sama** est conçu pour **télécharger des scans** provenant du site Anime-Sama.
 
