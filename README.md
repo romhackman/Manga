@@ -413,16 +413,69 @@ Depuis la **V4**, la gestion des changements de domaine Anime-Sama est **entièr
 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/image.png)
 
----
-
-Si tu veux, je peux aussi :
-
-* ajouter une section **Usage**
-* écrire un README **anglais**
-* ou documenter le script **ligne par ligne**
-
----
-
 ## MangaDex 🐈
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/logo.png?raw=true)
+
+Bien sûr ! Voici une version corrigée et légèrement améliorée de ton texte pour qu’il soit plus clair, fluide et grammaticalement correct :
+
+---
+
+MangaDex est une application permettant de télécharger des mangas provenant du site MangaDex. Ce programme est simple et utilise l’API du site pour effectuer les téléchargements. *Ce site contient moins de scans que Anime-Sama.*
+
+### Interface 🪟
+
+* Un bouton vers le module PDFV2
+* Une zone de sélection de la langue entre FR et EN
+* Une zone pour entrer le nom du scan recherché
+* Une zone pour choisir les chapitres à télécharger
+* Un bouton pour lancer le téléchargement
+
+### Fonctionnement ⚙️
+Parfait ! Avec tous les fichiers que tu as fournis, je peux te rédiger une section **Fonctionnement ⚙️** claire et détaillée pour ton document, qui explique exactement comment ton programme fonctionne, en s’appuyant sur `api.py`, `downloader.py`, `main.py` et `mangadex.py`. Voici une version adaptée :
+
+---
+
+### Fonctionnement ⚙️
+
+MangaDL utilise l’API de MangaDex pour rechercher et télécharger des mangas. Le programme est structuré en plusieurs modules :
+
+#### 1. `api.py` – Communication avec MangaDex
+
+* **`search(title)`** : recherche un manga par son titre (max 5 résultats).
+* **`chapters(manga_id, lang)`** : liste les chapitres disponibles pour un manga donné, dans la langue choisie (FR ou EN).
+* **`pages(chapter_id)`** : récupère les URLs de toutes les pages d’un chapitre.
+
+#### 2. `downloader.py` – Téléchargement des chapitres
+
+* **`download_chapter(data, out_folder, chapter_num, cbz=True)`** : télécharge toutes les pages d’un chapitre dans un dossier local.
+* Chaque chapitre est enregistré dans un dossier nommé `Chapitre_<num>` et chaque page est nommée `Page_<num>.jpg`.
+* Si l’option CBZ est activée, le chapitre est automatiquement compressé en fichier `.cbz` pour une lecture facile.
+
+#### 3. `main.py` – Interface graphique (Tkinter)
+
+* L’application permet de :
+
+  1. Choisir la langue des chapitres (FR ou EN).
+  2. Rechercher un manga par son titre et afficher les résultats.
+  3. Sélectionner les chapitres à télécharger.
+  4. Lancer le téléchargement, avec une barre de progression et un retour visuel des pages téléchargées.
+* Une fonctionnalité externe **PDFV2** est intégrée via un bouton, permettant de générer des PDF depuis les chapitres téléchargés.
+
+#### 4. `mangadex.py` – Interface en ligne de commande (CLI)
+
+* MangaDL peut également être utilisé depuis le terminal :
+
+  * `search <titre>` : recherche un manga.
+  * `chapters <manga_id>` : liste les chapitres disponibles.
+  * `download <chapter_id> [-o dossier] [--cbz]` : télécharge un chapitre dans un dossier choisi, avec option CBZ.
+
+#### 5. Processus complet
+
+1. L’utilisateur recherche un manga ou sélectionne un manga existant.
+2. L’application récupère les chapitres disponibles via l’API.
+3. L’utilisateur choisit les chapitres à télécharger.
+4. Le programme télécharge chaque page et crée un dossier/CBZ pour chaque chapitre.
+5. La barre de progression se met à jour en temps réel.
+6. À la fin, l’utilisateur reçoit une notification de succès.
+
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/image.png?raw=true)
