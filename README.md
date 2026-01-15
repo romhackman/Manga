@@ -34,7 +34,7 @@ Manga Downloader V5 est une application Python open-source qui centralise tous v
 
 Accédez au dépôt GitHub pour **télécharger l’application et le code source** :
 
-[Manga Downloader Installer sur GitHub](https://github.com/romhackman/Manga_Downloader_installer/blob/main/install_Manga_V4_win_linux.py)
+[Manga Downloader Installer sur GitHub](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Install_Manga_V5_win_linux.py)
 
 ---
 
