@@ -1,124 +1,158 @@
-import requests
 import os
-from urllib.parse import urlparse
+import sys
+import requests
 import tkinter as tk
 from tkinter import messagebox
-import re  # pour extraire la version
+import subprocess
 
-# ---- Config ----
-version_file_prefix = "V"
-version_file_suffix = ".manga"
-update_txt_url = "https://raw.githubusercontent.com/romhackman/Manga/main/update.txt"
-root_folder = os.getcwd()  # dossier où se trouve le script
+# ======================================================
+# Dossier principal (où se trouve update.py)
+# ======================================================
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# ---- Fonction pour lire la version locale ----
-def get_local_version():
-    for file in os.listdir(root_folder):
-        if file.startswith(version_file_prefix) and file.endswith(version_file_suffix):
-            try:
-                return int(file[len(version_file_prefix):-len(version_file_suffix)])
-            except:
-                pass
-    return 0  # pas de version locale
+# ======================================================
+# URL du fichier update.txt
+# ======================================================
+UPDATE_URL = "https://raw.githubusercontent.com/romhackman/Manga/main/update.txt"
 
-# ---- Fonction pour créer le lien raw ----
-def github_raw_url(link):
-    parsed = urlparse(link.strip())
-    path_parts = parsed.path.split('/')
-    if "blob" in path_parts:
-        path_parts.pop(path_parts.index("blob"))
-    return f"https://raw.githubusercontent.com{'/'.join(path_parts)}"
+# ======================================================
+# Détecter le fichier de version locale
+# ======================================================
+LOCAL_VERSION_FILE = None
+local_version = "V0"  # valeur par défaut si aucun fichier trouvé
 
-# ---- Récupérer update.txt ----
-response = requests.get(update_txt_url)
-if response.status_code != 200:
-    print(f"Erreur lors de la récupération de update.txt : {response.status_code}")
-    exit()
+for f in os.listdir(BASE_DIR):
+    if f.upper().startswith("V") and f.lower().endswith(".manga"):
+        LOCAL_VERSION_FILE = os.path.join(BASE_DIR, f)
+        local_version = f.split(".")[0]  # "V2" depuis "V2.manga"
+        break
 
-lines = response.text.splitlines()
-if not lines:
-    print("update.txt vide")
-    exit()
+# ======================================================
+# Récupérer le contenu de update.txt
+# ======================================================
+try:
+    response = requests.get(UPDATE_URL)
+    response.raise_for_status()
+except Exception as e:
+    messagebox.showerror("Erreur", f"Impossible de récupérer update.txt :\n{e}")
+    sys.exit(1)
 
-# ---- Extraire la version distante depuis la première ligne ----
-first_line = lines[0]
-match = re.search(r'V(\d+)', first_line, re.IGNORECASE)
-if not match:
-    print("Impossible de trouver la version dans update.txt")
-    exit()
+lines = response.text.strip().splitlines()
+if len(lines) < 3:
+    messagebox.showerror("Erreur", "update.txt trop court !")
+    sys.exit(1)
 
-remote_version = int(match.group(1))
-local_version = get_local_version()
+# ======================================================
+# Lire la version et le statut
+# ======================================================
+# Ligne 1 : version
+version_line = lines[0].strip()  # exemple : "update : V3"
+if version_line.lower().startswith("update"):
+    # Accepte "update : V3" ou "update: V3"
+    parts = version_line.split(":", 1)
+    if len(parts) < 2:
+        messagebox.showerror("Erreur", f"Format de version invalide : {version_line}")
+        sys.exit(1)
+    remote_version = parts[1].strip()  # récupère "V3"
+else:
+    messagebox.showerror("Erreur", f"Format de version invalide : {version_line}")
+    sys.exit(1)
 
-print(f"Version locale : V{local_version}")
-print(f"Version distante : V{remote_version}")
+# Vérifier que c’est bien "V" suivi d’un chiffre
+if not remote_version.startswith("V") or not remote_version[1:].isdigit():
+    messagebox.showerror("Erreur", f"Version invalide : {remote_version}")
+    sys.exit(1)
 
-if remote_version <= local_version:
-    print("Vous êtes déjà à jour.")
-    exit()
+# Ligne 2 : statut
+status = lines[1].strip().lower()  # stable / instable / en test
+STATUS_ICONS = {
+    "stable": "stable 🟢",
+    "instable": "instable ⚠️",
+    "en test": "en test 🔴"
+}
+status_text = STATUS_ICONS.get(status, status)
 
-# ---- Pop-up pour proposer la mise à jour ----
-root = tk.Tk()
-root.withdraw()  # cacher la fenêtre principale
-root.attributes("-topmost", True)  # mettre la pop-up au premier plan
+# Les lignes suivantes sont les fichiers à télécharger
+file_lines = lines[2:]
 
-update_choice = messagebox.askyesno(
-    "Mise à jour disponible",
-    f"Une nouvelle version est disponible (V{remote_version}).\nVoulez-vous mettre à jour ?"
-)
-root.destroy()  # fermer la fenêtre Tkinter principale après la pop-up
+# ======================================================
+# Comparer versions
+# ======================================================
+if remote_version > local_version:
+    root = tk.Tk()
+    root.withdraw()
+    answer = messagebox.askyesno(
+        "Mise à jour disponible",
+        f"Une nouvelle version est disponible : {remote_version} ({status_text})\n"
+        f"Votre version : {local_version}\n\n"
+        "Voulez-vous mettre à jour maintenant ?"
+    )
+    if not answer:
+        sys.exit(0)
+else:
+    print(f"Vous êtes déjà à jour ({local_version}). Statut : {status_text}")
+    sys.exit(0)
 
-if not update_choice:
-    print("Mise à jour annulée.")
-    exit()
-
-# ---- Télécharger les fichiers ----
-for line in lines[1:]:
-    line = line.strip()
-    if not line or line.startswith("#"):
-        continue
-
-    # Séparer le lien et le chemin cible
+# ======================================================
+# Télécharger tous les fichiers listés
+# ======================================================
+for line in file_lines:
     if "|" not in line:
-        print(f"Ligne invalide (pas de '|') : {line}")
         continue
-    link, target_folder = map(str.strip, line.split("|", 1))
+    file_url, target_path = [p.strip() for p in line.split("|", 1)]
+    
+    # Transformer l'URL github pour avoir le raw
+    if "github.com" in file_url and "blob" in file_url:
+        file_url = file_url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
 
-    # Chemin complet
-    if target_folder.lower() == "racine":
-        full_folder_path = root_folder
+    # Calculer chemin final
+    if target_path.lower() == "racine":
+        dest_dir = BASE_DIR
     else:
-        target_folder = target_folder.replace(">", os.sep).replace(" ", "")
-        full_folder_path = os.path.join(root_folder, target_folder)
-        os.makedirs(full_folder_path, exist_ok=True)
+        # Supporter plusieurs niveaux : anime_sama > APP
+        parts = [p.strip() for p in target_path.split(">")]
+        dest_dir = os.path.join(BASE_DIR, *parts)
 
-    filename = os.path.basename(urlparse(link).path)
-    local_path = os.path.join(full_folder_path, filename)
+    os.makedirs(dest_dir, exist_ok=True)  # créer dossiers si nécessaire
 
-    # Supprimer l’ancien fichier
-    if os.path.exists(local_path):
-        os.remove(local_path)
-        print(f"Ancien fichier supprimé : {local_path}")
+    # Nom du fichier
+    filename = os.path.basename(file_url)
+    dest_file = os.path.join(dest_dir, filename)
 
-    raw_link = github_raw_url(link)
-
-    print(f"Téléchargement de {raw_link} -> {local_path}")
+    # Télécharger le fichier
     try:
-        r = requests.get(raw_link, stream=True)
+        r = requests.get(file_url, stream=True)
         r.raise_for_status()
-        with open(local_path, "wb") as f:
-            for chunk in r.iter_content(chunk_size=8192):
+        with open(dest_file, "wb") as f:
+            for chunk in r.iter_content(8192):
                 f.write(chunk)
-        print(f"{filename} téléchargé avec succès.\n")
+        print(f"{dest_file} téléchargé !")
     except Exception as e:
-        print(f"Erreur lors du téléchargement de {link}: {e}\n")
+        messagebox.showerror("Erreur", f"Impossible de télécharger {file_url} :\n{e}")
 
-# ---- Mettre à jour le fichier de version ----
-# Supprimer l’ancien fichier de version
-for file in os.listdir(root_folder):
-    if file.startswith(version_file_prefix) and file.endswith(version_file_suffix):
-        os.remove(os.path.join(root_folder, file))
-# Créer le nouveau fichier de version
-new_version_file = f"{version_file_prefix}{remote_version}{version_file_suffix}"
-open(os.path.join(root_folder, new_version_file), "w").close()
-print(f"Mise à jour terminée. Nouvelle version : V{remote_version}")
+# ======================================================
+# Mise à jour terminée
+# ======================================================
+# Renommer le fichier de version locale pour refléter la nouvelle version
+new_version_file = os.path.join(BASE_DIR, remote_version + ".manga")
+if LOCAL_VERSION_FILE:
+    os.replace(LOCAL_VERSION_FILE, new_version_file)  # V2.manga → V3.manga
+else:
+    # Aucun fichier de version existant, créer le nouveau
+    with open(new_version_file, "w") as f:
+        f.write("")  # contenu vide
+
+root = tk.Tk()
+root.withdraw()
+answer = messagebox.askyesno(
+    "Mise à jour terminée",
+    f"Mise à jour vers {remote_version} ({status_text}) terminée !\n"
+    "Voulez-vous relancer le Launcher maintenant ?"
+)
+
+if answer:
+    launcher_path = os.path.join(BASE_DIR, "Launcher", "Launcher.py")
+    if os.path.exists(launcher_path):
+        subprocess.Popen([sys.executable, launcher_path], cwd=os.path.dirname(launcher_path))
+    else:
+        messagebox.showerror("Erreur", f"Launcher introuvable : {launcher_path}")
