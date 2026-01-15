@@ -14,6 +14,29 @@ import sys
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # ======================================================
+# Lancer automatiquement update.py au démarrage (compatible disque externe)
+# ======================================================
+import shlex
+
+# Chemin absolu du dossier du script Launcher.py
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Chemin absolu vers update.py (un dossier au-dessus)
+update_script = os.path.abspath(os.path.join(BASE_DIR, "..", "update.py"))
+
+# Debug : afficher le chemin utilisé
+print("Chemin update.py :", update_script)
+
+if os.path.exists(update_script):
+    try:
+        # Utiliser subprocess avec shlex.quote pour gérer les espaces
+        subprocess.Popen([sys.executable, update_script], shell=False)
+    except Exception as e:
+        messagebox.showerror("Erreur", f"Impossible de lancer update.py :\n{e}")
+else:
+    messagebox.showwarning("Attention", f"update.py introuvable :\n{update_script}")
+
+# ======================================================
 # Thème
 # ======================================================
 FOND = "#fbbeaf"
