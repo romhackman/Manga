@@ -127,7 +127,7 @@ Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de
 
 ---
 
-## 🐾 Anime-Sama 
+## 🐾 Anime Sama 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/logo.png)
 
 # Module Anime-Sama 📚
