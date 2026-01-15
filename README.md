@@ -9,7 +9,6 @@ Téléchargez facilement vos mangas favoris en quelques clics, depuis Anime Sama
 
 **Explication rapide :**
 Manga Downloader V5 est une application Python open-source qui centralise tous vos besoins : téléchargement automatique des chapitres, création de PDF, gestion des plugins et organisation des fichiers. Compatible Windows et Linux, elle calcule automatiquement le nombre de pages par chapitre et permet aux utilisateurs avancés d’ajouter ou créer des plugins pour étendre les sources de mangas disponibles.
----
 
 ## 🚀 Fonctionnalités
 
