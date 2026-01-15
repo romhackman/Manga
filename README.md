@@ -128,8 +128,8 @@ L’interface comporte plusieurs boutons et sections, chacun ayant une fonction 
 
 En haut à gauche, on trouve plusieurs boutons permettant de lancer différentes applications liées au téléchargement de scans :
 
-* **PDV2** : Application pour **créer des PDF** à partir d’images.
 * **MangaV3** : Application pour **télécharger des scans manuellement**.
+* **PDV2** : Application pour **créer des PDF** à partir d’images.
 * **ShareV2** : Application pour **rechercher le nombre de pages** d’un ou plusieurs chapitres d’un manga.
 * **APPV2** : L’**application principale**, permettant de **télécharger les scans rapidement et facilement**.
 
@@ -145,6 +145,24 @@ En bas de la fenêtre, un bouton **Actualiser** permet de :
 - 1 **MangaV3**
 - 2 **ShareV2**
 - 3 **APPV2**
+- 
+---
+
+### MangaV2 🪢
+
+MangaV2 est une base de l'application Anime-Sama. Elle permet de télécharger des scans de manière *manuelle* en utilisant un lien, ainsi qu’en renseignant le nombre de pages par chapitre.
+
+## Interface 🪟
+
+* Une zone pour **entrer le titre du manga**, qui servira de nom pour le dossier accueillant le téléchargement des chapitres.
+* Une zone pour **entrer le lien du scan** à télécharger.
+* Un bouton **Choisir le dossier principal** pour sélectionner l’emplacement où le dossier de téléchargement sera créé.
+* Une **barre de téléchargement** pour suivre l’avancement du téléchargement en cours.
+* Un bouton **Télécharger** pour lancer le téléchargement.
+
+### ShareV2 🔍
+
+### APPV2 🔽
 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
 ---
