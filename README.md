@@ -39,7 +39,7 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
 
 * [Launcher](#launcher)
 * [Plugins](#plugins)
-* [Anime-Sama](#-Anime-Sama--)
+* [Anime-Sama](#-anime-sama)
   * [MangaV3](#mangav3)
   * [ShareV2](#sharev2)
   * [APPV2](#appv2)
@@ -72,7 +72,7 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 *Ce bouton permet de rafraîchir la liste de vos mangas. Cette action est également effectuée automatiquement à chaque ouverture du Launcher.*
 
 ---
-## Plugins 🧩
+## 🧩 Plugins
 ![plugins](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/plugins/logo.png?raw=true)
 
 Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de télécharger, installer et lancer facilement des plugins depuis GitHub, sans avoir besoin de manipuler des fichiers ou des commandes.
@@ -127,7 +127,7 @@ Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de
 
 ---
 
-## Anime-Sama 🐾
+## 🐾 Anime-Sama 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/logo.png)
 
 # Module Anime-Sama 📚
@@ -283,10 +283,6 @@ Le fonctionnement de ShareV2 repose sur la logique suivante (expliquée à parti
 
 ---
 
-Bien sûr ! Voici une version corrigée et améliorée de ton texte, avec une orthographe, une grammaire et une formulation plus claires, tout en conservant ton style et les emojis :
-
----
-
 ### APPV2 🔽
 
 APPV2 est sans doute l'application la plus pratique de ce projet.
@@ -317,8 +313,6 @@ Finder fonctionne de la même façon que ShareV2, il suffit de mettre le **titre
 ### Downloader 🔽
 
 Downloader télécharge automatiquement les images des scans en utilisant les informations fournies en interne par la partie Finder.
-
-Parfait ! À partir de ton code, on peut rédiger une **section “Fonctionnement ⚙️” claire et structurée**, en expliquant le processus de l’app de manière compréhensible pour un manuel ou une doc utilisateur :
 
 ---
 
@@ -429,7 +423,7 @@ Depuis la **V4**, la gestion des changements de domaine Anime-Sama est **entièr
 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/image.png)
 
-## MangaDex 🐈
+## 🐈 MangaDex 
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/logo.png?raw=true)
 
 Bien sûr ! Voici une version corrigée et légèrement améliorée de ton texte pour qu’il soit plus clair, fluide et grammaticalement correct :
