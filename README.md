@@ -39,7 +39,7 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
 
 * [Launcher](#launcher)
 * [Plugins](#plugins)
-* [Anime-Sama](#anime-sama)
+* [Anime-Sama](#-Anime-Sama--)
   * [MangaV3](#mangav3)
   * [ShareV2](#sharev2)
   * [APPV2](#appv2)
