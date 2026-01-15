@@ -112,10 +112,6 @@ Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de
 ## Anime-Sama 🐾
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/logo.png)
 
-Parfait ! Voici une version un peu réorganisée et clarifiée de ton texte pour le rendre plus lisible et structuré, tout en conservant toutes les informations importantes :
-
----
-
 # Module Anime-Sama 📚
 
 Le module **Anime-Sama** est conçu pour **télécharger des scans** provenant du site Anime-Sama.
@@ -152,13 +148,54 @@ En bas de la fenêtre, un bouton **Actualiser** permet de :
 
 MangaV2 est une base de l'application Anime-Sama. Elle permet de télécharger des scans de manière *manuelle* en utilisant un lien, ainsi qu’en renseignant le nombre de pages par chapitre.
 
-## Interface 🪟
+### Interface 🪟
 
 * Une zone pour **entrer le titre du manga**, qui servira de nom pour le dossier accueillant le téléchargement des chapitres.
 * Une zone pour **entrer le lien du scan** à télécharger.
 * Un bouton **Choisir le dossier principal** pour sélectionner l’emplacement où le dossier de téléchargement sera créé.
 * Une **barre de téléchargement** pour suivre l’avancement du téléchargement en cours.
 * Un bouton **Télécharger** pour lancer le téléchargement.
+
+---
+
+### Fonctionnement ⚙️
+
+MangaV2 fonctionne en suivant un processus simple et guidé pour télécharger les chapitres d’un manga depuis un lien modèle. Voici les étapes principales :
+
+1. **Sélection du dossier principal**
+   L’utilisateur commence par choisir un dossier sur son ordinateur où seront créés tous les fichiers du manga téléchargé. MangaV2 crée ensuite un sous-dossier portant le nom du manga pour y ranger tous les chapitres.
+
+2. **Entrée des informations du manga**
+
+   * **Titre du manga** : sert à nommer le dossier contenant tous les chapitres.
+   * **Lien modèle** : un lien de téléchargement contenant deux placeholders importants :
+
+     * `CHAP` pour le numéro du chapitre
+     * `NUM` pour le numéro de la page dans le chapitre
+       Cela permet à l’application de générer automatiquement les URL des images pour chaque page de chaque chapitre.
+
+3. **Définition des chapitres à télécharger**
+   L’utilisateur peut choisir :
+
+   * Un intervalle précis de chapitres (début → fin)
+   * Ou un chapitre de départ avec un nombre de chapitres à télécharger
+
+4. **Définition du nombre de pages par chapitre**
+   Une fenêtre s’ouvre pour que l’utilisateur saisisse le nombre exact de pages pour chaque chapitre. Cette étape est obligatoire pour que le téléchargement s’effectue correctement.
+
+5. **Téléchargement automatique des pages**
+
+   * Pour chaque chapitre, MangaV2 crée un sous-dossier spécifique.
+   * Chaque page est téléchargée à partir du lien généré en remplaçant `CHAP` et `NUM` par les valeurs appropriées.
+   * Une barre de progression et un compteur indiquent en temps réel l’avancement du téléchargement total.
+
+6. **Gestion des erreurs**
+
+   * Si une page ne peut pas être téléchargée, une fenêtre d’erreur indique le problème.
+   * Les champs de saisie sont vérifiés pour éviter les valeurs invalides (ex : nombre de pages négatif).
+
+7. **Finalisation**
+   Une fois tous les chapitres téléchargés, une notification indique que le processus est terminé et la barre de progression est réinitialisée.
 
 ### ShareV2 🔍
 
