@@ -32,9 +32,21 @@ Accédez au dépôt GitHub pour **télécharger l’application et le code sourc
 ## ⚠️ Attention
 
 Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. Certains contenus peuvent enfreindre les droits d’auteur ou soulever des questions éthiques et légales. L’utilisateur est seul responsable de l’usage qu’il en fait et des éventuelles conséquences légales.
+---
+Parfait ! Je vais te créer un **sommaire cliquable complet** pour ton README, basé sur les sections que tu m’as fournies : **Plugins**, **Anime-Sama**, **Scraper Anime-Sama**, et **MangaDex**. J’ai utilisé la syntaxe Markdown compatible GitHub pour que chaque entrée renvoie directement à sa section.
 
-Ah ! Tu veux créer un **sommaire cliquable** pour ton README, où chaque partie renvoie directement à sa section dans le document. Sur GitHub/Markdown, cela se fait avec des **ancres**. Voici comment tu peux le faire :
+---
 
+# 📑 Sommaire
+
+* [Launcher 📕](#launcher-📕)
+* [Plugins 🧩](#plugins-🧩)
+* [Anime-Sama 🐾](#anime-sama-🐾)
+  * [MangaV3 🪢](#mangav3-🪢)
+  * [ShareV2 🔍](#sharev2-🔍)
+  * [APPV2 🔽](#appv2-🔽)
+* [Scraper Anime-Sama 📡](#-anime-sama-domain-scraper)
+* [MangaDex 🐈](#mangadex-🐈)
 ---
 
 # Sommaire
