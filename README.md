@@ -37,14 +37,14 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
 
 # 📑 Sommaire
 
-* [Launcher 📕](#launcher-📕)
-* [Plugins 🧩](#plugins-🧩)
-* [Anime-Sama 🐾](#anime-sama-🐾)
-  * [MangaV3 🪢](#mangav3-🪢)
-  * [ShareV2 🔍](#sharev2-🔍)
-  * [APPV2 🔽](#appv2-🔽)
-* [Scraper Anime-Sama 📡](#-anime-sama-domain-scraper)
-* [MangaDex 🐈](#mangadex-🐈)
+* [Launcher](#launcher)
+* [Plugins](#plugins)
+* [Anime-Sama](#anime-sama)
+  * [MangaV3](#mangav3)
+  * [ShareV2](#sharev2)
+  * [APPV2](#appv2)
+* [Scraper Anime-Sama](#scraper-anime-sama)
+* [MangaDex](#mangadex)
   
 ---
 
