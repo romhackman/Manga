@@ -1,3 +1,2 @@
-https://github.com/romhackman/Manga/blob/main/README.md | racine
 https://github.com/romhackman/Manga/blob/main/anime_sama/image.png | anime_sama
 https://github.com/romhackman/Manga/blob/main/anime_sama/APP/scraper_domaine.py | anime_sama > APP
