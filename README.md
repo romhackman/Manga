@@ -201,6 +201,17 @@ MangaV2 fonctionne en suivant un processus simple et guidé pour télécharger l
 
 ### ShareV2 🔍
 
+ShareV2 est un programme qui a pour object de trouve le nombre de page il y a dans un scan de manga cette application cer surtout a aider au téléchargement avec l'application MangaV2
+
+### Interface 🪟
+
+* Une zone pour enter le nom du scan
+* Un bouton pour ouvrie le lien lier au titre si rien ne souvre le lien est faux le titre est faux
+* Une zone pour entre les chapitres que le programme doit trouver
+* Un bouton pour lancer la recherche des pages
+
+### Fonctionnement ⚙️
+
 ### APPV2 🔽
 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
