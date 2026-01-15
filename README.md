@@ -43,12 +43,12 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
   * [MangaV3](#mangav3)
   * [ShareV2](#sharev2)
   * [APPV2](#appv2)
-* [Scraper Anime-Sama](#scraper-anime-sama)
+* [Scraper Anime-Sama](#-scraper-anime-sama)
 * [MangaDex](#mangadex)
   
 ---
 
-## Launcher 📕
+## Launcher 
 ![Launcher](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/home/logo.png?raw=true)
 
 Le **Launcher** est l'interface principale de cette application. Il permet d'accéder rapidement à vos mangas favoris et à tous les modules et fonctionnalités disponibles.
