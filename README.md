@@ -143,7 +143,8 @@ En bas de la fenêtre, un bouton **Actualiser** permet de :
 # Application de c'est fentre anime-sama:
 
 - 1 **MangaV3**
-- 2
+- 2 **ShareV2**
+- 3 **APPV2**
 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
 ---
