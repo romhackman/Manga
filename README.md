@@ -126,9 +126,6 @@ Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de
 ## Anime-Sama 🐾
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/logo.png)
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
-Voici un **README GitHub adapté au fonctionnement réel de ton code**, avec des infos techniques cohérentes mais simples 👍
-Prêt à être copié/collé.
-
 ---
 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/logo.png)
@@ -193,7 +190,4 @@ Si tu veux, je peux aussi :
 
 ## MangaDex 🐈
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/logo.png?raw=true)
-# 🆕 Version
-
-Depuis la **V2**, la gestion et le téléchargement des scan de MangaDex **entièrement foctionnel**.
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/image.png?raw=true)
