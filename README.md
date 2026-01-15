@@ -164,7 +164,14 @@ MangaV2 fonctionne en suivant un processus simple et guidé pour télécharger l
 1. **Sélection du dossier principal**
    L’utilisateur commence par choisir un dossier sur son ordinateur où seront créés tous les fichiers du manga téléchargé. MangaV2 crée ensuite un sous-dossier portant le nom du manga pour y ranger tous les chapitres.
 
-2. **Entrée des informations du manga**
+
+2 **Téléchargement automatique des pages**
+
+   * Pour chaque chapitre, MangaV2 crée un sous-dossier spécifique.
+   * Chaque page est téléchargée à partir du lien généré en remplaçant `CHAP` et `NUM` par les valeurs appropriées.
+   * Une barre de progression et un compteur indiquent en temps réel l’avancement du téléchargement total.
+
+3. **Entrée des informations du manga**
 
    * **Titre du manga** : sert à nommer le dossier contenant tous les chapitres.
    * **Lien modèle** : un lien de téléchargement contenant deux placeholders importants :
@@ -172,21 +179,17 @@ MangaV2 fonctionne en suivant un processus simple et guidé pour télécharger l
      * `CHAP` pour le numéro du chapitre
      * `NUM` pour le numéro de la page dans le chapitre
        Cela permet à l’application de générer automatiquement les URL des images pour chaque page de chaque chapitre.
-
-3. **Définition des chapitres à télécharger**
+       
+4. **Définition des chapitres à télécharger**
    L’utilisateur peut choisir :
 
    * Un intervalle précis de chapitres (début → fin)
    * Ou un chapitre de départ avec un nombre de chapitres à télécharger
 
-4. **Définition du nombre de pages par chapitre**
+
+
+5. **Définition du nombre de pages par chapitre**
    Une fenêtre s’ouvre pour que l’utilisateur saisisse le nombre exact de pages pour chaque chapitre. Cette étape est obligatoire pour que le téléchargement s’effectue correctement.
-
-5. **Téléchargement automatique des pages**
-
-   * Pour chaque chapitre, MangaV2 crée un sous-dossier spécifique.
-   * Chaque page est téléchargée à partir du lien généré en remplaçant `CHAP` et `NUM` par les valeurs appropriées.
-   * Une barre de progression et un compteur indiquent en temps réel l’avancement du téléchargement total.
 
 6. **Gestion des erreurs**
 
