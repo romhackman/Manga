@@ -12,6 +12,9 @@ Manga Downloader V5 est une application Python open-source qui centralise tous v
 
 ---
 [![Python](https://img.shields.io/badge/python-3.10-blue)](https://www.python.org/) 
+![Stars](https://img.shields.io/github/stars/romhackman/Manga)
+![Forks](https://img.shields.io/github/forks/romhackman/Manga)
+
 ---
 ## 🚀 Fonctionnalités
 
