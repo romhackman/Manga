@@ -147,7 +147,7 @@ En bas de la fenêtre, un bouton **Actualiser** permet de :
 
 ### MangaV2 🪢
 
-MangaV2 est une base de l'application Anime-Sama. Elle permet de télécharger des scans de manière *manuelle* en utilisant un lien, ainsi qu’en renseignant le nombre de pages par chapitre.
+MangaV3 est une base de l'application Anime-Sama. Elle permet de télécharger des scans de manière *manuelle* en utilisant un lien, ainsi qu’en renseignant le nombre de pages par chapitre.
 
 ### Interface 🪟
 
@@ -159,7 +159,7 @@ MangaV2 est une base de l'application Anime-Sama. Elle permet de télécharger d
 
 ### Fonctionnement ⚙️
 
-MangaV2 fonctionne en suivant un processus simple et guidé pour télécharger les chapitres d’un manga depuis un lien modèle. Voici les étapes principales :
+MangaV3 fonctionne en suivant un processus simple et guidé pour télécharger les chapitres d’un manga depuis un lien modèle. Voici les étapes principales :
 
 1. **Sélection du dossier principal**
    L’utilisateur commence par choisir un dossier sur son ordinateur où seront créés tous les fichiers du manga téléchargé. MangaV2 crée ensuite un sous-dossier portant le nom du manga pour y ranger tous les chapitres.
@@ -167,7 +167,7 @@ MangaV2 fonctionne en suivant un processus simple et guidé pour télécharger l
 
 2 **Téléchargement automatique des pages**
 
-   * Pour chaque chapitre, MangaV2 crée un sous-dossier spécifique.
+   * Pour chaque chapitre, MangaV3 crée un sous-dossier spécifique.
    * Chaque page est téléchargée à partir du lien généré en remplaçant `CHAP` et `NUM` par les valeurs appropriées.
    * Une barre de progression et un compteur indiquent en temps réel l’avancement du téléchargement total.
 
@@ -205,7 +205,7 @@ Bien sûr ! Voici une version corrigée et clarifiée de ton texte **ShareV2**
 
 ### ShareV2 🔍
 
-**ShareV2** est un programme qui permet de **trouver le nombre de pages dans un scan de manga**. Cette application sert principalement à **faciliter le téléchargement via l’application MangaV2**.
+**ShareV2** est un programme qui permet de **trouver le nombre de pages dans un scan de manga**. Cette application sert principalement à **faciliter le téléchargement via l’application MangaV3**.
 
 ### Interface 🪟
 
