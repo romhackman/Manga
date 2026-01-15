@@ -74,7 +74,7 @@ Le **Launcher** est l'interface principale de cette application. Il permet d'acc
 ---
 ## 🧩 Plugins
 ![plugins](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/plugins/logo.png?raw=true)
-
+[Somaine 📑](#-sommaire)
 Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de télécharger, installer et lancer facilement des plugins depuis GitHub, sans avoir besoin de manipuler des fichiers ou des commandes.
 
 ### Comment fonctionne le programme
@@ -129,9 +129,9 @@ Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de
 
 ## 🐾 Anime Sama 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/logo.png)
-[Somaine 📑](#-sommaire)
-# Module Anime-Sama 📚 
 
+# Module Anime-Sama 📚
+[Somaine 📑](#-sommaire)
 Le module **Anime-Sama** est conçu pour **télécharger des scans** provenant du site Anime-Sama.
 
 ## Interface 🪟
@@ -376,7 +376,7 @@ Le Downloader utilise les informations collectées par le Finder pour **téléch
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/logo.png)
 
 # 📡 Anime-Sama Domain Scraper
-
+[Somaine 📑](#-sommaire)
 Ce projet est un **scraper Python** permettant de détecter automatiquement le **domaine actif d’Anime-Sama** et d’enregistrer l’information dans un fichier JSON.
 
 Anime-Sama change très fréquemment d’URL, ce qui rend les liens rapidement obsolètes dans les applications qui y sont connectées.
@@ -425,7 +425,7 @@ Depuis la **V4**, la gestion des changements de domaine Anime-Sama est **entièr
 
 ## 🐈 MangaDex 
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/logo.png?raw=true)
-
+[Somaine 📑](#-sommaire)
 Bien sûr ! Voici une version corrigée et légèrement améliorée de ton texte pour qu’il soit plus clair, fluide et grammaticalement correct :
 
 ---
