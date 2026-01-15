@@ -265,9 +265,17 @@ Le fonctionnement de ShareV2 repose sur la logique suivante (expliquée à parti
 5. Les fichiers temporaires sont créés pour sauvegarder les résultats.
 6. Optionnel : l’utilisateur peut supprimer le dossier temporaire après usage.
 
+---
+
 ### APPV2 🔽
 
+APPV2 est un sans doute l'application la plus pratique de ce project
+
+### Interface 🪟
+sur le project il y a 2 interface car cette fenetre elle possaide 2 onglets
+
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
+
 ---
 
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/logo.png)
