@@ -2,9 +2,13 @@
 
 ![Logo Manga Downloader](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/logo.png?raw=true)
 
-**Bonjour, je suis Romh@ckman !**  
-Je développe une application Python open-source pour **télécharger facilement les meilleurs scans de mangas** depuis [Anime Sama](https://anime-sama.si) et [MangaDex](https://mangadex.org), gratuitement !
+**Bonjour, je suis Romh@ckman !**
 
+**Accroche :**
+Téléchargez facilement vos mangas favoris en quelques clics, depuis Anime Sama et MangaDex, grâce à une application simple et open-source.
+
+**Explication rapide :**
+Manga Downloader V5 est une application Python open-source qui centralise tous vos besoins : téléchargement automatique des chapitres, création de PDF, gestion des plugins et organisation des fichiers. Compatible Windows et Linux, elle calcule automatiquement le nombre de pages par chapitre et permet aux utilisateurs avancés d’ajouter ou créer des plugins pour étendre les sources de mangas disponibles.
 ---
 
 ## 🚀 Fonctionnalités
@@ -29,10 +33,6 @@ Accédez au dépôt GitHub pour **télécharger l’application et le code sourc
 ## ⚠️ Attention
 
 Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. Certains contenus peuvent enfreindre les droits d’auteur ou soulever des questions éthiques et légales. L’utilisateur est seul responsable de l’usage qu’il en fait et des éventuelles conséquences légales.
-
----
-
-Manga Downloader V5 est une application Python open-source qui permet de télécharger facilement des mangas depuis Anime Sama et MangaDex. Avec une interface simple et un Launcher central, vous pouvez lancer les modules de téléchargement, créer des PDF, gérer des plugins et garder vos mangas organisés. Open-source et multiplateforme, le programme facilite le téléchargement complet des chapitres tout en restant extensible grâce aux plugins personnalisables.
 
 ---
 
