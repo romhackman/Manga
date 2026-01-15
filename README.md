@@ -199,18 +199,83 @@ MangaV2 fonctionne en suivant un processus simple et guidé pour télécharger l
 7. **Finalisation**
    Une fois tous les chapitres téléchargés, une notification indique que le processus est terminé et la barre de progression est réinitialisée.
 
+Bien sûr ! Voici une version corrigée et clarifiée de ton texte **ShareV2**, avec la partie « Fonctionnement » rédigée de manière complète en s’appuyant sur ton code Python. J’ai corrigé les fautes, amélioré la lisibilité et structuré le tout proprement.
+
+---
+
 ### ShareV2 🔍
 
-ShareV2 est un programme qui a pour object de trouve le nombre de page il y a dans un scan de manga cette application cer surtout a aider au téléchargement avec l'application MangaV2
+**ShareV2** est un programme qui permet de **trouver le nombre de pages dans un scan de manga**. Cette application sert principalement à **faciliter le téléchargement via l’application MangaV2**.
+
+---
 
 ### Interface 🪟
 
-* Une zone pour enter le nom du scan
-* Un bouton pour ouvrie le lien lier au titre si rien ne souvre le lien est faux le titre est faux
-* Une zone pour entre les chapitres que le programme doit trouver
-* Un bouton pour lancer la recherche des pages
+* Une zone pour **saisir le nom du scan** (nom du manga).
+* Un bouton pour **ouvrir le lien lié au titre**.
+
+  * Si rien ne s’ouvre, le lien ou le titre est incorrect.
+* Une zone pour **entrer les chapitres** que le programme doit traiter.
+* Un bouton pour **lancer la recherche du nombre de pages** pour les chapitres sélectionnés.
+* Une liste affichant les **chapitres ajoutés**.
+* Un bouton pour **supprimer le dossier temporaire** créé lors de la recherche.
+
+---
 
 ### Fonctionnement ⚙️
+
+Le fonctionnement de ShareV2 repose sur la logique suivante (expliquée à partir du code Python) :
+
+1. **Lecture du domaine du site**
+
+   * Le programme lit un fichier JSON (`domaine.json`) pour connaître le domaine actuel du site Anime-sama.
+   * Si le fichier est absent ou corrompu, le domaine par défaut `"si"` est utilisé.
+
+2. **Création du lien vers le scan**
+
+   * Le nom du manga est formaté en **minuscules** et les accents sont remplacés par des lettres simples (`é` → `e`, `à` → `a`, etc.).
+   * Les espaces sont remplacés par des tirets (`-`) pour générer une URL valide sur Anime-sama.
+
+3. **Gestion des chapitres**
+
+   * L’utilisateur peut saisir plusieurs chapitres séparés par des **espaces ou des virgules**.
+   * Les chapitres sont ajoutés à une liste interne et affichés dans la zone de liste.
+
+4. **Recherche du nombre de pages (algorithme binaire)**
+
+   * Pour chaque chapitre, ShareV2 utilise une **recherche binaire** pour déterminer le nombre de pages :
+
+     * On commence avec une plage de pages de 1 à 1000 (variable `MAX_PAGES_POSSIBLE`).
+     * On teste si la page `mid` existe sur le serveur via une requête `HEAD`.
+     * Si elle existe, la recherche continue dans la partie supérieure (`low = mid + 1`).
+     * Sinon, elle continue dans la partie inférieure (`high = mid - 1`).
+   * À la fin, le programme connaît **le dernier numéro de page valide** pour le chapitre.
+
+5. **Parallélisation**
+
+   * La recherche de pages pour plusieurs chapitres se fait **en parallèle** grâce à `ThreadPoolExecutor`, ce qui accélère grandement le processus.
+
+6. **Stockage temporaire**
+
+   * Les résultats sont sauvegardés dans un **dossier temporaire**, un fichier par chapitre contenant le nombre de pages.
+   * L’utilisateur peut choisir de **supprimer ce dossier** via un bouton.
+
+7. **Interface graphique**
+
+   * Construit avec `tkinter` avec un **thème sombre**.
+   * Possibilité d’ouvrir directement le lien du manga sur Anime-sama.
+   * Affiche le nombre de pages par chapitre dans une fenêtre pop-up.
+
+---
+
+### Résumé du flux de travail
+
+1. L’utilisateur saisit le nom du manga.
+2. Il ajoute un ou plusieurs chapitres.
+3. Il clique sur **“Trouver le nombre de pages (tous)”**.
+4. ShareV2 calcule le nombre de pages pour chaque chapitre et affiche le résultat.
+5. Les fichiers temporaires sont créés pour sauvegarder les résultats.
+6. Optionnel : l’utilisateur peut supprimer le dossier temporaire après usage.
 
 ### APPV2 🔽
 
