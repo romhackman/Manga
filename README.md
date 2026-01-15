@@ -128,8 +128,69 @@ Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de
 ## Anime-Sama 🐾
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/logo.png)
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/anime%20sama/image.png)
+Voici un **README GitHub adapté au fonctionnement réel de ton code**, avec des infos techniques cohérentes mais simples 👍
+Prêt à être copié/collé.
+
+---
+
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/logo.png)
+
+# 📡 Anime-Sama Domain Scraper
+
+Ce projet est un **scraper Python** permettant de détecter automatiquement le **domaine actif d’Anime-Sama** et d’enregistrer l’information dans un fichier JSON.
+
+Anime-Sama change très fréquemment d’URL, ce qui rend les liens rapidement obsolètes dans les applications qui y sont connectées.
+Ce script permet d’automatiser entièrement ce processus.
+
+# ⚙️ Fonctionnement
+
+1. Le script se rend sur le site officiel **anime-sama.pw**
+2. Il analyse le code HTML à l’aide de **BeautifulSoup**
+3. Il recherche le bouton **"Accéder à Anime-Sama"**
+4. Il récupère l’URL active actuellement fonctionnelle
+5. Il extrait **l’extension du domaine** (`.fr`, `.si`, `.com`, etc.)
+6. Il enregistre cette information dans un fichier `domaine.json`
+
+# 📁 Structure des fichiers
+
+Le script crée automatiquement le dossier suivant (si inexistant) :
+
+```
+ND_anime_sama/
+└── domaine.json
+```
+
+### Exemple de contenu de `domaine.json` :
+
+```json
+{
+    "domaine": "si"
+}
+```
+
+Ce fichier peut ensuite être utilisé par d’autres applications ou scripts pour construire dynamiquement l’URL Anime-Sama valide.
+
+# ✅ Avantages
+
+* 🔄 Détection automatique du domaine actif
+* 🛠️ Plus besoin de modifier le code à chaque changement d’URL
+* 📦 Format JSON simple à exploiter
+* 🚀 Intégration facile dans d’autres projets
+
+# 🆕 Version
+
+Depuis la **V4**, la gestion des changements de domaine Anime-Sama est **entièrement automatisée**.
+
 ![anime sama](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/image.png)
+
+---
+
+Si tu veux, je peux aussi :
+
+* ajouter une section **Usage**
+* écrire un README **anglais**
+* ou documenter le script **ligne par ligne**
+
 ---
 
 ## MangaDex 🐈
