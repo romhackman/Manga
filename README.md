@@ -33,6 +33,17 @@ Accédez au dépôt GitHub pour **télécharger l’application et le code sourc
 
 Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. Certains contenus peuvent enfreindre les droits d’auteur ou soulever des questions éthiques et légales. L’utilisateur est seul responsable de l’usage qu’il en fait et des éventuelles conséquences légales.
 
+Ah ! Tu veux créer un **sommaire cliquable** pour ton README, où chaque partie renvoie directement à sa section dans le document. Sur GitHub/Markdown, cela se fait avec des **ancres**. Voici comment tu peux le faire :
+
+---
+
+# Sommaire
+
+* [Anime-Sama](#anime-sama)
+* [MangaDex](#mangadex)
+* [Scraper](#scraper)
+* [Plugins](#plugins)
+
 ---
 
 ## Launcher 📕
