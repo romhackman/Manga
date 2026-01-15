@@ -1,3 +1,7 @@
 update : V3
-https://github.com/romhackman/Manga/blob/main/anime_sama/image.png | anime_sama
+https://github.com/romhackman/Manga/blob/main/README.md | racine
 https://github.com/romhackman/Manga/blob/main/anime_sama/APP/scraper_domaine.py | anime_sama > APP
+https://github.com/romhackman/Manga/blob/main/anime_sama/APP/APPV2.py | anime_sama > APP
+https://github.com/romhackman/Manga/blob/main/anime_sama/mangaV3.py | anime_sama
+https://github.com/romhackman/Manga/blob/main/anime_sama/shareV2.py | anime_sama
+https://github.com/romhackman/Manga/blob/main/Launcher/Launcher.py | Launcher
