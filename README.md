@@ -107,6 +107,8 @@ Ce programme est un **gestionnaire de plugins**. Il permet à l’utilisateur de
 - **Entrer un lien + Télécharger** → ajouter un plugin  
 - **Actualiser** → mettre à jour la liste
 
+![plugins](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/plugins/image.png?raw=true)
+
 ---
 
 ## Anime-Sama 🐾
