@@ -54,6 +54,7 @@ Je décline toute responsabilité quant à l’utilisation et au contenu des fic
   * [APPV2](#-appv2)
 * [Scraper Anime-Sama](#-anime-sama-domain-scraper)
 * [MangaDex](#-mangadex)
+* [Update](#-update)
   
 ---
 
@@ -498,3 +499,9 @@ MangaDL utilise l’API de MangaDex pour rechercher et télécharger des mangas.
 6. À la fin, l’utilisateur reçoit une notification de succès.
 
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/image.png?raw=true)
+
+## 🗂️ Upadate
+![update](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/update/logo.png?raw=true)
+![upadate](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/upadate/image.png?raw=true)
+
+
