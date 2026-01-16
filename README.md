@@ -500,8 +500,8 @@ MangaDL utilise l’API de MangaDex pour rechercher et télécharger des mangas.
 
 ![mangadex](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/mangadex/image.png?raw=true)
 
-## 🗂️ Upadate
+## 🗂️ Update
 ![update](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/update/logo.png?raw=true)
-![upadate](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/upadate/image.png?raw=true)
+![upadate](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/update/image.png?raw=true)
 
 
