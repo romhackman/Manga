@@ -27,6 +27,7 @@ Manga Downloader V5 est une application Python open-source qui centralise tous v
 - Fonctionne sur Windows et Linux via un exécutable prêt à l’emploi  
 - Ajouter facilement des plugins  
 - Mise à jour automatique du nom de domaine de Anime Sama
+- Mise à jour automatique de ce projet
 
 ---
 
