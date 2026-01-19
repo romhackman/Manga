@@ -1,4 +1,4 @@
-update : V3s
+update : V3.1
 stable
 https://github.com/romhackman/Manga/blob/main/README.md | racine
 https://github.com/romhackman/Manga/blob/main/anime_sama/APP/scraper_domaine.py | anime_sama > APP
