@@ -3,6 +3,8 @@
 ![Logo Manga Downloader](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/logo.png?raw=true)
 
 **Bonjour, je suis Romh@ckman !**
+[Télécharger l’installateur](https://raw.githubusercontent.com/romhackman/Manga_Downloader_installer/main/Install_Manga_V5_win_linux.py)
+
 
 **Accroche :**
 Téléchargez facilement vos mangas favoris en quelques clics, depuis Anime Sama et MangaDex, grâce à une application simple et open-source.
