@@ -1,7 +1,8 @@
 update : V3.1
 stable
 del :
-anime_sama > test.py
+anime_sama > test1.py
+anime_sama > test.txt
 ---
 https://github.com/romhackman/Manga/blob/main/README.md | racine
 https://github.com/romhackman/Manga/blob/main/anime_sama/APP/scraper_domaine.py | anime_sama > APP
