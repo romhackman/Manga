@@ -4,7 +4,6 @@
 
 **Bonjour, je suis Romh@ckman !**
 
-
 **Accroche :**
 Téléchargez facilement vos mangas favoris en quelques clics, depuis Anime Sama et MangaDex, grâce à une application simple et open-source.
 
@@ -40,11 +39,19 @@ Accédez au dépôt GitHub pour **télécharger l’application et le code sourc
 
 ---
 
-## ⚠️ Attention
+## ⚠️ Avertissement légal
 
-Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. Certains contenus peuvent enfreindre les droits d’auteur ou soulever des questions éthiques et légales. L’utilisateur est seul responsable de l’usage qu’il en fait et des éventuelles conséquences légales.
+Ce projet est fourni **à titre éducatif et technique uniquement**, pour expérimenter et apprendre le code.  
+Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. **Aucun fichier protégé par le droit d’auteur n’est fourni.**  
+Certains contenus peuvent enfreindre les droits d’auteur ou soulever des questions éthiques et légales. L’utilisateur est **entièrement responsable** de l’usage qu’il en fait et des éventuelles conséquences légales.  
+
+Le code est fourni “tel quel” sous **licence MIT**. L’auteur ne garantit rien et ne peut être tenu responsable de l’utilisation du logiciel.
 
 ---
+
+## 📜 Licence
+
+Ce projet est sous **[Licence MIT](LICENSE)**.
 
 # 📑 Sommaire
 
