@@ -11,8 +11,8 @@ Easily download your favorite manga in just a few clicks from **Anime Sama** and
 **Quick Overview:**
 Manga Downloader V5 is an open-source Python application that centralizes all your manga needs: automatic chapter downloads, PDF creation, plugin management, and file organization. Compatible with Windows and Linux, it automatically calculates the number of pages per chapter and allows advanced users to add or create plugins to extend the available manga sources.
 
-[README in English](https://github.com/romhackman/Manga/README%20[EN].md)
-[README in French](https://github.com/romhackman/Manga/README%20[fr].md)
+[README in French](https://github.com/romhackman/Manga/blob/main/README_FR.md)
+[README in English](https://github.com/romhackman/Manga/blob/main/README_EN.md)
 
 ---
 
