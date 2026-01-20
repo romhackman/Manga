@@ -1,19 +1,22 @@
+
 # Manga Downloader V5.1 🌐📚
 
-![Logo Manga Downloader](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/logo.png?raw=true)
+![Manga Downloader Logo](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/logo.png?raw=true)
 
-**Bonjour, je suis Romh@ckman !**
+**Hello, I’m Romh@ckman!**
 
-**Accroche :**
-Téléchargez facilement vos mangas favoris en quelques clics, depuis Anime Sama et MangaDex, grâce à une application simple et open-source.
+**Tagline:**
+Easily download your favorite manga in just a few clicks from **Anime Sama** and **MangaDex** with a simple, open-source application.
 
-**Explication rapide :**
-Manga Downloader V5 est une application Python open-source qui centralise tous vos besoins : téléchargement automatique des chapitres, création de PDF, gestion des plugins et organisation des fichiers. Compatible Windows et Linux, elle calcule automatiquement le nombre de pages par chapitre et permet aux utilisateurs avancés d’ajouter ou créer des plugins pour étendre les sources de mangas disponibles.
+**Quick Overview:**
+Manga Downloader V5 is an open-source Python application that centralizes all your manga needs: automatic chapter downloads, PDF creation, plugin management, and file organization. Compatible with Windows and Linux, it automatically calculates the number of pages per chapter and allows advanced users to add or create plugins to extend the available manga sources.
 
-[README [fr]](https://github.com/romhackman/Manga/README [fr].md)
-[README [en]](https://github.com/romhackman/Manga/README [en].md)
+[README in English](https://github.com/romhackman/Manga/README%20[en].md)
+[README in French](https://github.com/romhackman/Manga/README%20[fr].md)
+
 ---
-[![Python](https://img.shields.io/badge/python-3.10-blue)](https://www.python.org/) 
+
+[![Python](https://img.shields.io/badge/python-3.10-blue)](https://www.python.org/)
 ![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen?style=flat-square)
 ![Windows](https://img.shields.io/badge/Windows-Yes-blue?style=flat-square)
 ![Linux](https://img.shields.io/badge/Linux-Yes-blue?style=flat-square)
@@ -21,36 +24,38 @@ Manga Downloader V5 est une application Python open-source qui centralise tous v
 ![Forks](https://img.shields.io/github/forks/romhackman/Manga)
 
 ---
-## 🚀 Fonctionnalités
 
-- Télécharger les derniers chapitres de mangas depuis Anime Sama et MangaDex  
-- Interface simple et conviviale  
-- Open-source : vous pouvez contribuer ou l’améliorer  
-- Fonctionne sur Windows et Linux via un exécutable prêt à l’emploi  
-- Ajouter facilement des plugins  
-- Mise à jour automatique du nom de domaine de Anime Sama
-- Mise à jour automatique de ce projet
+## 🚀 Features
 
----
-
-## 💻 Téléchargement
-
-Accédez au dépôt GitHub pour **télécharger l’application et le code source** :
-
-[Manga Downloader Installer sur GitHub](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Install_Manga_V5_win_linux.py)
+* Download the latest manga chapters from **Anime Sama** and **MangaDex**
+* Simple and user-friendly interface
+* Open-source: contribute or improve the app
+* Works on Windows and Linux via a ready-to-use executable
+* Easily add plugins
+* Automatic update of the **Anime Sama** domain
+* Automatic project updates
 
 ---
 
-## ⚠️ Avertissement légal
+## 💻 Download
 
-Ce projet est fourni **à titre éducatif et technique uniquement**, pour expérimenter et apprendre le code.  
-Je décline toute responsabilité quant à l’utilisation et au contenu des fichiers téléchargés. Ces programmes sont destinés à un usage strictement personnel. **Aucun fichier protégé par le droit d’auteur n’est fourni.**  
-Certains contenus peuvent enfreindre les droits d’auteur ou soulever des questions éthiques et légales. L’utilisateur est **entièrement responsable** de l’usage qu’il en fait et des éventuelles conséquences légales.  
+Visit the GitHub repository to **download the application and source code**:
 
-Le code est fourni “tel quel” sous **licence MIT**. L’auteur ne garantit rien et ne peut être tenu responsable de l’utilisation du logiciel.
+[Manga Downloader Installer on GitHub](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Install_Manga_V5_win_linux.py)
 
 ---
 
-## 📜 Licence
+## ⚠️ Legal Disclaimer
 
-Ce projet est sous **[Licence MIT](LICENSE)**.
+This project is provided **for educational and technical purposes only**, to experiment and learn coding.
+I disclaim any responsibility for the use or content of downloaded files. These programs are intended for **personal use only**. **No copyrighted files are provided.**
+
+Some content may infringe copyright or raise ethical and legal issues. The user is **fully responsible** for how they use it and any legal consequences.
+
+The code is provided “as is” under the **MIT License**. The author provides no guarantees and cannot be held liable for software use.
+
+---
+
+## 📜 License
+
+This project is under the **[MIT License](LICENSE)**.
