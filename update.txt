@@ -5,6 +5,6 @@ anime_sama > APP > APPV2.py
 ---
 https://github.com/romhackman/Manga/blob/main/anime_sama/APP/APPV3.py | anime_sama > APP
 https://github.com/romhackman/Manga/blob/main/anime_sama/lecture.py | anime_sama
-https://github.com/romhackman/Manga/blob/main/LICENSE | racine
-https://github.com/romhackman/Manga/blob/main/README_EN.md | racine
-https://github.com/romhackman/Manga/blob/main/README_FR.md | racine
+https://github.com/romhackman/Manga/blob/main/LICENSE | README
+https://github.com/romhackman/Manga/blob/main/README_EN.md | README
+https://github.com/romhackman/Manga/blob/main/README_FR.md | README
