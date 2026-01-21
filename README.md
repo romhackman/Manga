@@ -53,6 +53,7 @@ No copyrighted content is included in this repository. The author does not encou
 Users are solely responsible for how they use this software and for complying with applicable laws in their country.
 
 The software is provided “as is”, without warranty of any kind, under the MIT License. The author cannot be held liable for any misuse, damages, or legal consequences resulting from the use of this software.
+
 ---
 
 ## 📜 License
