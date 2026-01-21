@@ -1,5 +1,5 @@
 update : V3.1
-stable
+test
 del :
 anime_sama > APP > APPV2.py
 ---
