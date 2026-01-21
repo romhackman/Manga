@@ -44,16 +44,15 @@ Visit the GitHub repository to **download the application and source code**:
 [Manga Downloader Installer on GitHub](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Install_Manga_V5_win_linux.py)
 
 ---
-
 ## ⚠️ Legal Disclaimer
 
-This project is provided **for educational and technical purposes only**, to experiment and learn coding.
-I disclaim any responsibility for the use or content of downloaded files. These programs are intended for **personal use only**. **No copyrighted files are provided.**
+This project is provided for educational and technical purposes only, to learn and experiment with programming.
 
-Some content may infringe copyright or raise ethical and legal issues. The user is **fully responsible** for how they use it and any legal consequences.
+No copyrighted content is included in this repository. The author does not encourage or promote copyright infringement.
 
-The code is provided “as is” under the **MIT License**. The author provides no guarantees and cannot be held liable for software use.
+Users are solely responsible for how they use this software and for complying with applicable laws in their country.
 
+The software is provided “as is”, without warranty of any kind, under the MIT License. The author cannot be held liable for any misuse, damages, or legal consequences resulting from the use of this software.
 ---
 
 ## 📜 License
