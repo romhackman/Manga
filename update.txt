@@ -8,9 +8,9 @@ https://github.com/romhackman/Manga/blob/main/anime_sama/lecture.py | anime_sama
 https://github.com/romhackman/Manga/blob/main/LICENSE | README
 https://github.com/romhackman/Manga/blob/main/README_EN.md | README
 https://github.com/romhackman/Manga/blob/main/README_FR.md | README
-https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/State_Extra.py | anime > APP > State_Scan
-https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/downloader.py | anime > APP > State_Scan
-https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/finder.py | anime > APP > State_Scan
-https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/generator.py | anime > APP > State_Scan
-https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/graph.py | anime > APP > State_Scan
-https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/logo.png | anime > APP > State_Scan
+https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/State_Extra.py | anime_sama > APP > State_Scan
+https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/downloader.py | anime_sama > APP > State_Scan
+https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/finder.py | anime_sama > APP > State_Scan
+https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/generator.py | anime_sama > APP > State_Scan
+https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/graph.py | anime_sama > APP > State_Scan
+https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/logo.png | anime_sama > APP > State_Scan
