@@ -2,8 +2,8 @@ import os
 import sys
 import requests
 import subprocess
-import re
 import shutil
+import re
 import tkinter as tk
 from tkinter import messagebox, ttk
 from PIL import Image, ImageTk
@@ -108,9 +108,9 @@ i = 2
 if i < len(lines) and lines[i].lower().startswith("del"):
     log("Zone de suppression détectée")
     i += 1
-    while i < len(lines) and lines[i] != "---":
-        delete_files.append(lines[i])
-        log(f"À supprimer : {lines[i]}")
+    while i < len(lines) and lines[i].strip() != "---":
+        delete_files.append(lines[i].strip())
+        log(f"À supprimer : {lines[i].strip()}")
         i += 1
     i += 1  # saute le ---
 
@@ -221,14 +221,12 @@ def run_update():
             for chunk in r.iter_content(8192):
                 f.write(chunk)
                 done += len(chunk)
-                if total:
+                if total > 0:
                     progress["value"] = done / total * 100
                     root.update_idletasks()
 
     # ======= VERSION =======
-    new_version = fmt(remote_major, remote_micro)[1:]
-    new_file = os.path.join(BASE_DIR, f"V{new_version}.manga")
-
+    new_file = os.path.join(BASE_DIR, f"V{remote_major}.{remote_micro}.manga")
     if LOCAL_VERSION_FILE:
         os.replace(LOCAL_VERSION_FILE, new_file)
     else:
