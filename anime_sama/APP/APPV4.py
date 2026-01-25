@@ -157,51 +157,111 @@ def afficher_resultats():
 def remplir_downloader():
     entry_titre_dl.delete(0, tk.END)
     entry_titre_dl.insert(0, titre_anime)
+
     entry_url_dl.delete(0, tk.END)
-    entry_url_dl.insert(
-        0,
-        f"https://anime-sama.{DOMAINE}/s2/scans/{urllib.parse.quote(titre_anime)}/CHAP/NUM.jpg"
-    )
+    entry_url_dl.insert(0, f"https://anime-sama.{DOMAINE}/s2/scans/{urllib.parse.quote(titre_anime)}/CHAP/NUM.jpg")
+
     box_dl.delete(0, tk.END)
-    for c, p in sorted(pages_trouvees.items()):
-        box_dl.insert(tk.END, f"Chapitre {c} ({p} pages)")
+    for chap, pages in sorted(pages_trouvees.items()):
+        box_dl.insert(tk.END, f"Chapitre {chap} ({pages} pages)")
 
 def choisir_dossier():
-    d = filedialog.askdirectory()
-    if d:
-        dossier_destination.set(d)
+    dossier = filedialog.askdirectory()
+    if dossier:
+        dossier_destination.set(dossier)
+
+def natural_sort_key(s):
+    return [int(text) if text.isdigit() else text.lower() for text in re.split('([0-9]+)', s)]
+
+def creer_pdf_boost(dossier_racine):
+    sous_dossiers = [os.path.join(dossier_racine, d) for d in os.listdir(dossier_racine)
+                     if os.path.isdir(os.path.join(dossier_racine, d))]
+    if not sous_dossiers:
+        messagebox.showerror("Erreur", "Aucun chapitre trouvé pour créer les PDF.")
+        return
+
+    resultats = []
+    for dossier in sorted(sous_dossiers, key=natural_sort_key):
+        fichiers = sorted([f for f in os.listdir(dossier) if f.lower().endswith((".jpg",".jpeg",".png"))],
+                          key=natural_sort_key)
+        images = []
+        for f in fichiers:
+            try:
+                img = Image.open(os.path.join(dossier, f)).convert("RGB")
+                images.append(img)
+            except Exception as e:
+                print(f"Erreur ouverture image {f} : {e}")
+                continue
+        if images:
+            chemin_pdf = os.path.join(dossier_racine, f"{os.path.basename(dossier)}.pdf")
+            try:
+                images[0].save(chemin_pdf, save_all=True, append_images=images[1:])
+                resultats.append(f"{os.path.basename(dossier)} → OK ({chemin_pdf})")
+            except Exception as e:
+                resultats.append(f"{os.path.basename(dossier)} → Erreur ({e})")
+        else:
+            resultats.append(f"{os.path.basename(dossier)} → Aucune image")
+
+    messagebox.showinfo("PDF Boost terminé", "\n".join(resultats))
 
 def telecharger():
     if not pages_trouvees:
+        messagebox.showerror("Erreur", "Aucune donnée Finder.")
         return
     dossier = dossier_destination.get()
-    os.makedirs(dossier, exist_ok=True)
+    if not dossier:
+        messagebox.showerror("Erreur", "Choisissez un dossier.")
+        return
 
     base = entry_url_dl.get()
-    for c, p in pages_trouvees.items():
-        dchap = os.path.join(dossier, f"Chapitre_{c}")
-        os.makedirs(dchap, exist_ok=True)
-        for i in range(1, p + 1):
+    total = sum(pages_trouvees.values())
+    fait = 0
+
+    dossier_manga = os.path.join(dossier, titre_anime)
+    os.makedirs(dossier_manga, exist_ok=True)
+
+    for chap, pages in sorted(pages_trouvees.items()):
+        dossier_chap = os.path.join(dossier_manga, f"Chapitre_{chap}")
+        os.makedirs(dossier_chap, exist_ok=True)
+        for i in range(1, pages + 1):
+            url = base.replace("CHAP", str(chap)).replace("NUM", str(i))
             try:
-                data = requests.get(
-                    base.replace("CHAP", str(c)).replace("NUM", str(i))
-                ).content
-                open(os.path.join(dchap, f"{i}.jpg"), "wb").write(data)
+                data = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}).content
             except:
-                pass
-    messagebox.showinfo("OK", "Téléchargement terminé")
+                continue
+            with open(os.path.join(dossier_chap, f"page_{i}.jpg"), "wb") as f:
+                f.write(data)
+            fait += 1
+            progress['value'] = (fait / total) * 100
+            fenetre.update()
+
+    progress['value'] = 0
+    messagebox.showinfo("Terminé", "Téléchargement terminé.")
+
+    if messagebox.askyesno("Créer PDF", "Voulez-vous créer les PDF avec le mode boosté ?"):
+        threading.Thread(target=creer_pdf_boost, args=(dossier_manga,)).start()
+
+def supprimer_dossier():
+    global dossier_temp
+    if dossier_temp and os.path.exists(dossier_temp):
+        if messagebox.askyesno("Supprimer dossier ?", f"Supprimer '{dossier_temp}' ?"):
+            shutil.rmtree(dossier_temp)
+            messagebox.showinfo("Supprimé", f"Dossier '{dossier_temp}' supprimé.")
+            dossier_temp = None
+    else:
+        messagebox.showwarning("Aucun dossier", "Aucun dossier temporaire trouvé.")
 
 # ======================================================
 # INTERFACE
 # ======================================================
 fenetre = tk.Tk()
 fenetre.title("Anime-sama Finder & Downloader")
-fenetre.geometry("900x520")
+fenetre.geometry("1100x650")
 fenetre.minsize(850, 500)
 fenetre.configure(bg=FOND)
 
 style = ttk.Style()
-style.theme_use("clam")
+style.theme_use('clam')
 style.configure("TNotebook", background=FOND, borderwidth=0)
 style.configure("TNotebook.Tab", background=BOUTON_BG, foreground=TEXTE)
 style.map("TNotebook.Tab", background=[("selected", BLEU)])
@@ -213,98 +273,55 @@ tabs.pack(fill="both", expand=True)
 finder = tk.Frame(tabs, bg=FOND)
 tabs.add(finder, text="🔍 Finder")
 
-# --------- ZONE RECHERCHE (COMPACTE) ---------
-frame_search = tk.Frame(
-    finder,
-    bg=GRIS,
-    highlightbackground=BLEU,
-    highlightthickness=1
-)
+frame_search = tk.Frame(finder, bg=GRIS, highlightbackground=BLEU, highlightthickness=1)
 frame_search.pack(padx=15, pady=10, fill="x")
 
-tk.Label(
-    frame_search,
-    text="🔍 Recherche",
-    bg=GRIS,
-    fg=TEXTE,
-    font=("Segoe UI", 10, "bold")
-).pack(anchor="w", padx=8, pady=(6, 2))
-
-entree_titre = tk.Entry(
-    frame_search,
-    bg=ENTREE_BG,
-    fg=TEXTE,
-    insertbackground=TEXTE,
-    relief="flat",
-    font=("Segoe UI", 11)
-)
-entree_titre.pack(fill="x", padx=8, pady=(0, 4))
+tk.Label(frame_search, text="🔍 Recherche", bg=GRIS, fg=TEXTE, font=("Segoe UI", 10, "bold")).pack(anchor="w", padx=8, pady=(6,2))
+entree_titre = tk.Entry(frame_search, bg=ENTREE_BG, fg=TEXTE, insertbackground=TEXTE, relief="flat", font=("Segoe UI", 11))
+entree_titre.pack(fill="x", padx=8, pady=(0,4))
 entree_titre.bind("<KeyRelease>", on_titre_keyrelease)
 
-listbox_search = tk.Listbox(
-    frame_search,
-    bg=ENTREE_BG,
-    fg=TEXTE,
-    selectbackground=BLEU,
-    selectforeground=TEXTE,
-    relief="flat",
-    height=4,
-    highlightthickness=0,
-    font=("Segoe UI", 10)
-)
-listbox_search.pack(fill="x", padx=8, pady=(0, 6))
+listbox_search = tk.Listbox(frame_search, bg=ENTREE_BG, fg=TEXTE, selectbackground=BLEU, selectforeground=TEXTE, relief="flat", height=4, highlightthickness=0, font=("Segoe UI", 10))
+listbox_search.pack(fill="x", padx=8, pady=(0,6))
 listbox_search.bind("<<ListboxSelect>>", on_select_anime)
 
-# --------- CHAPITRES ---------
 tk.Label(finder, text="Chapitres :", bg=FOND, fg=TEXTE).pack()
 entree_chapitres = tk.Entry(finder, width=30, bg=ENTREE_BG, fg=TEXTE)
 entree_chapitres.pack()
 entree_chapitres.bind("<Return>", ajouter_chapitres_depuis_entry)
 
-tk.Button(
-    finder, text="Ajouter chapitres",
-    command=ajouter_chapitres_depuis_entry,
-    bg=BOUTON_BG, fg=TEXTE
-).pack(pady=5)
+tk.Button(finder, text="Ajouter chapitres", command=ajouter_chapitres_depuis_entry, bg=BOUTON_BG, fg=TEXTE).pack(pady=5)
+liste = tk.Listbox(finder, width=30, height=8, bg=ENTREE_BG, fg=TEXTE)
+liste.pack(pady=5)
 
-liste = tk.Listbox(finder, width=30, height=5, bg=ENTREE_BG, fg=TEXTE)
-liste.pack()
+tk.Button(finder, text="Trouver le nombre de pages", command=trouver_pages_tous, bg=BOUTON_BG, fg=TEXTE).pack(pady=10)
+box_result = tk.Listbox(finder, width=40, height=10, bg=ENTREE_BG, fg=TEXTE)
+box_result.pack(pady=5)
 
-tk.Button(
-    finder, text="Trouver le nombre de pages",
-    command=trouver_pages_tous,
-    bg=BOUTON_BG, fg=TEXTE
-).pack(pady=8)
-
-box_result = tk.Listbox(finder, width=40, height=6, bg=ENTREE_BG, fg=TEXTE)
-box_result.pack()
+tk.Button(finder, text="Supprimer dossier temporaire", command=supprimer_dossier, bg=ROUGE, fg=TEXTE).pack(pady=10)
 
 # ===== ONGLET DOWNLOADER =====
 downloader = tk.Frame(tabs, bg=FOND)
 tabs.add(downloader, text="⬇ Downloader")
 
+tk.Label(downloader, text="Titre :", bg=FOND, fg=TEXTE).pack()
 entry_titre_dl = tk.Entry(downloader, width=40, bg=ENTREE_BG, fg=TEXTE)
 entry_titre_dl.pack()
 
+tk.Label(downloader, text="URL modèle :", bg=FOND, fg=TEXTE).pack()
 entry_url_dl = tk.Entry(downloader, width=60, bg=ENTREE_BG, fg=TEXTE)
 entry_url_dl.pack()
 
-box_dl = tk.Listbox(downloader, width=45, height=7, bg=ENTREE_BG, fg=TEXTE)
+box_dl = tk.Listbox(downloader, width=45, height=10, bg=ENTREE_BG, fg=TEXTE)
 box_dl.pack(pady=10)
 
 dossier_destination = tk.StringVar()
-tk.Button(
-    downloader, text="Choisir dossier",
-    command=choisir_dossier,
-    bg=BOUTON_BG, fg=TEXTE
-).pack()
+tk.Button(downloader, text="Choisir dossier", command=choisir_dossier, bg=BOUTON_BG, fg=TEXTE).pack()
 tk.Label(downloader, textvariable=dossier_destination, bg=FOND, fg=TEXTE).pack()
 
-tk.Button(
-    downloader, text="Télécharger",
-    command=telecharger,
-    bg=BOUTON_BG, fg=TEXTE,
-    font=("Arial", 12, "bold")
-).pack(pady=10)
+progress = ttk.Progressbar(downloader, length=400, mode="determinate")
+progress.pack(pady=10)
+
+tk.Button(downloader, text="Télécharger", command=telecharger, bg=BOUTON_BG, fg=TEXTE, font=("Arial",12,"bold")).pack(pady=10)
 
 fenetre.mainloop()
