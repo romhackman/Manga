@@ -2,6 +2,7 @@ update : V5.3
 test
 del :
 anime_sama > APP > APPV4.py
+anime_sama > lecture.py
 ---
 https://github.com/romhackman/Manga/blob/main/anime_sama/APP/APPV5.py | anime_sama > APP
 https://github.com/romhackman/Manga/blob/main/anime_sama/APP/APPV5_CMD.py | anime_sama > APP
