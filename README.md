@@ -1,5 +1,5 @@
 
-# Manga Downloader V5.2 🌐📚
+# Manga Downloader V5.3 🌐📚
 
 ![Manga Downloader Logo](https://github.com/romhackman/Manga_Downloader_installer/blob/main/Bank_Image/scraper/logo.png?raw=true)
 
