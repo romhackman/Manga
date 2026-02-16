@@ -154,7 +154,7 @@ def lancer_share():
     lancer_script(os.path.join(BASE_DIR, "shareV2.py"))
 
 def lancer_APP():
-    lancer_script(os.path.join(BASE_DIR, "APP", "APPV4.py"))
+    lancer_script(os.path.join(BASE_DIR, "APP", "APPV5.py"))
 
 def lancer_State_Extra():
     lancer_script(os.path.join(BASE_DIR, "APP", "State_Scan", "State_Extra.py"))
@@ -181,7 +181,7 @@ frame_boutons.pack(anchor="nw", padx=5, pady=5)
 tk.Button(frame_boutons, text="MangaV3", command=lancer_mangaV3).pack(side="left", padx=2)
 tk.Button(frame_boutons, text="pdfV2", command=lancer_pdfV2).pack(side="left", padx=2)
 tk.Button(frame_boutons, text="ShareV2", command=lancer_share).pack(side="left", padx=2)
-tk.Button(frame_boutons, text="APPV4", command=lancer_APP).pack(side="left", padx=2)
+tk.Button(frame_boutons, text="APPV5", command=lancer_APP).pack(side="left", padx=2)
 tk.Button(frame_boutons, text="State & Extra", command=lancer_State_Extra).pack(side="left", padx=2)
 
 # ----------------- Frame principale -----------------
@@ -227,3 +227,4 @@ appliquer_theme(fenetre)
 load_config()
 refresh_mangas()
 fenetre.mainloop()
+
