@@ -15,42 +15,84 @@ json_file = os.path.join(nd_dir, "domaine.json")
 os.makedirs(nd_dir, exist_ok=True)
 
 # --------------------------------------
-# 2️⃣ Scraper le site
+# 2️⃣ Fonction principale
 # --------------------------------------
-url = "https://anime-sama.pw"
-response = requests.get(url)
-print("Status code:", response.status_code)
+def get_anime_sama_extension():
+    base_url = "https://anime-sama.pw"
 
-if response.status_code != 200:
-    print("Erreur lors du téléchargement de la page.")
-    exit()
+    try:
+        print("Connexion au site principal...")
+        response = requests.get(base_url, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        print("❌ Erreur lors de la connexion :", e)
+        return None
 
-soup = BeautifulSoup(response.text, "html.parser")
+    soup = BeautifulSoup(response.text, "html.parser")
 
-# Cherche le bouton "Accéder à Anime-Sama"
-link = soup.find("a", class_="btn-primary", string="Accéder à Anime-Sama")
-if not link:
-    link = soup.find("a", class_="btn-primary")
+    # Recherche du bouton
+    link = soup.find("a", class_="btn-primary", string="Accéder à Anime-Sama")
 
-if link:
+    if not link:
+        link = soup.find("a", class_="btn-primary")
+
+    if not link:
+        print("❌ Lien non trouvé dans le HTML.")
+        return None
+
     href = link.get("href")
+    if not href:
+        print("❌ Le lien trouvé ne contient pas de href.")
+        return None
+
     print("Lien trouvé :", href)
 
     # --------------------------------------
-    # 3️⃣ Extraction de l'extension du domaine
+    # 3️⃣ Suivre la redirection
     # --------------------------------------
-    parsed = urlparse(href)
-    hostname = parsed.hostname  # ex: 'anime-sama.si' ou 'www.anime-sama.com'
-    if hostname:
-        domaine_extension = hostname.split(".")[-1]  # prend la dernière partie
-        print("Extension extraite :", domaine_extension)
+    try:
+        final_response = requests.get(href, allow_redirects=True, timeout=10)
+        final_response.raise_for_status()
+    except requests.RequestException as e:
+        print("❌ Erreur lors du suivi de redirection :", e)
+        return None
 
-        data = {"domaine": domaine_extension}
+    final_url = final_response.url
+    print("URL finale après redirection :", final_url)
+
+    # --------------------------------------
+    # 4️⃣ Extraction du domaine
+    # --------------------------------------
+    parsed = urlparse(final_url)
+    hostname = parsed.hostname
+
+    if not hostname:
+        print("❌ Impossible d'extraire le hostname.")
+        return None
+
+    if "anime-sama" not in hostname:
+        print("⚠️ Domaine inattendu :", hostname)
+        return None
+
+    domaine_extension = hostname.split(".")[-1]
+    print("Extension extraite :", domaine_extension)
+
+    return domaine_extension
+
+
+# --------------------------------------
+# 5️⃣ Exécution
+# --------------------------------------
+extension = get_anime_sama_extension()
+
+if extension:
+    data = {"domaine": extension}
+
+    try:
         with open(json_file, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
-
-        print(f"L'extension du domaine a été enregistrée dans {json_file}")
-    else:
-        print("Impossible d'extraire le domaine 😕")
+        print(f"✅ Extension enregistrée dans {json_file}")
+    except IOError as e:
+        print("❌ Erreur lors de l'écriture du fichier JSON :", e)
 else:
-    print("Lien non trouvé 😕")
+    print("❌ Aucune extension récupérée.")
