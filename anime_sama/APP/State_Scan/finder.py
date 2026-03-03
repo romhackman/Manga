@@ -20,8 +20,26 @@ with open(json_path, "r", encoding="utf-8") as f:
         genres_data = {"genres": {}, "animes": []}
 
 # Session requests
-DOMAINE = "si"
-URL_HOME = f"https://anime-sama.{DOMAINE}/"
+
+# ======================================================
+# Domaine depuis JSON
+# ======================================================
+def load_domaine():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(script_dir, "..", "ND_anime_sama", "domaine.json")
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                return json.load(f).get("domaine", "tv")
+        except Exception as e:
+            print(f"[ERROR] Lecture JSON impossible : {e}")
+            return "tv"
+    return "tv"
+
+DOMAINE = load_domaine()
+print("Domaine utilisé :", DOMAINE)
+
+URL_HOME = f"https://anime-sama.{DOMAINE}/" 
 URL_SEARCH = f"https://anime-sama.{DOMAINE}/template-php/defaut/fetch.php"
 headers_search = {"User-Agent":"Mozilla/5.0","X-Requested-With":"XMLHttpRequest",
                   "Content-Type":"application/x-www-form-urlencoded; charset=UTF-8",
@@ -37,7 +55,7 @@ def nettoyer_nom(nom):
     return re.sub(r'[^a-zA-Z0-9\-]', '', nom_avec_tirets).lower()
 
 def creer_lien_genres(nom):
-    return f"https://anime-sama.si/catalogue/{nettoyer_nom(nom)}/"
+    return f"https://anime-sama.{DOMAINE}/catalogue/{nettoyer_nom(nom)}/"
 
 def setup_finder_tab(tabs, FOND, ENTREE_BG, TEXTE, BLEU, BOUTON_BG):
     global entree_titre, listbox_search, listbox_genres, genres_data
