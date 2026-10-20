@@ -1,5 +1,5 @@
-update : V5.3
-test
+update : V5.4
+stable
 del :
 anime_sama > APP > APPV4.py
 anime_sama > lecture.py
@@ -17,3 +17,4 @@ https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/finder.p
 https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/generator.py | anime_sama > APP > State_Scan
 https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/graph.py | anime_sama > APP > State_Scan
 https://github.com/romhackman/Manga/blob/main/anime_sama/APP/State_Scan/logo.png | anime_sama > APP > State_Scan
+https://github.com/romhackman/Manga/blob/main/Launcher/Launcher.py | Launcher
